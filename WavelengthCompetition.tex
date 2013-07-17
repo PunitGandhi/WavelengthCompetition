@@ -1,0 +1,259 @@
+\documentclass[api,pof,pre,12pt,a4paper]{revtex4-1}     
+\usepackage{bm}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[intlimits]{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{pstricks}
+%\usepackage{pst-coil}
+%\usepackage{pst-plot}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newenvironment{problem}[1]{\begin{prob} {\rm #1} \end{prob}}
+
+%Nadir's Shortcuts
+\newcommand{\beqn}{\begin{equation}}
+\newcommand{\eeqn}{\end{equation}}
+\newcommand{\beqa}{\begin{eqnarray}}
+\newcommand{\eeqa}{\end{eqnarray}}
+\newcommand{\beqanonum}{\begin{eqnarray*}}
+\newcommand{\eeqanonum}{\end{eqnarray*}}
+\newcommand{\beqnonum}{\begin{equation*}}
+\newcommand{\eeqnonum}{\end{equation*}}
+\newcommand{\jump}{\vspace{0.5cm}}
+\newcommand{\bbf}{\begin{bf}}
+\newcommand{\ebf}{\end{bf}}
+%\newcommand{\eqnref}[1]{(\ref{#1})}
+\newcommand{\defn}[1]{\begin{bf}\emph{#1}\end{bf}}
+\newcommand{\reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\complex}{\ensuremath{\mathbb{C}}}
+\newcommand{\integers}{\ensuremath{\mathbb{Z}}}
+\newcommand{\half}{\ensuremath{\frac{1}{2}}}
+\newcommand{\n}{\nonumber}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\del}{\partial}
+\newcommand{\dd}{\ensuremath{\, \mathrm{d}}}
+\newcommand{\nint}[4]{\int_{#3}^{#4} {#1}\, \mathrm{d}{#2}}
+\newcommand{\der}[2]{\frac{\d {#1}}{\d {#2}}}
+\newcommand{\parder}[2]{\frac{\del {#1}}{\del {#2}}}
+\newcommand{\funder}[2]{\frac{\delta {#1}}{\delta {#2}}}
+\newcommand{\Lag}{\mathcal{L}}
+
+\oddsidemargin  0.0in
+\evensidemargin 0.0in
+\textwidth      6.5in
+\headheight     15pt
+\topmargin      0.0in
+\textheight=8.0in
+%\setlength{\parindent}{0in}
+
+\lhead{Wavelength competition in modified SH}
+\chead{}
+\rhead{Gandhi et al.}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+
+%Figures
+\newcommand{\FIGmarginalstability}{
+\begin{figure}[t]\center
+\includegraphics[width=60mm]{MarginalStability.png}
+\caption{\label{fig:marginalstability} Linear stability of the modified Swift-Hohenberg equation with $q=2$ and $\delta=.1$.  The shaded region indicates linearly stable parameter regimes of the homogeneous solution with a forcing $r$ for a given wavenumber $k$.}
+\end{figure}
+}
+\newcommand{\FIGforce}{
+\begin{figure}[t]\center
+\includegraphics[width=60mm]{CowboyField.pdf}
+\caption{\label{fig:CowboyForce} A plot of the force corresponding to the term of the potential that breaks radial symmetry.}
+\end{figure}
+}
+
+
+\pagestyle{fancy}
+\begin{document}
+\preprint{APS/123-QED}
+
+\title{Pattern Formation in a system with competing wavelengths}
+
+\author{Punit Gandhi}
+ \email{punit_gandhi@berkeley.edu}
+\author{Edgar Knobloch}
+ \email{knobloch@berkeley.edu}
+\affiliation{Department of Physics, University of California, Berkeley CA 94720, USA}
+
+\begin{abstract}
+We propose a modified version of the Swift-Hohenberg equation in an attempt to study a situation in which competition between two patterns of different wavelength exist.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+The Swift-Hohenberg equation serves as a model for pattern formation in a broad range of physical systems.   This equation, which takes the form  
+\begin{equation}
+u_t= r u-\left(1+\partial_{x}^2\right)^2u+N[u]\label{eq:SH},
+\end{equation}
+describes the dynamics of a real field $u$ over one spatial dimension in time, where $N$ is some nonlinear function of $u$.  We have rescaled the equation so that the critical wavenumber that defines the natural wavelength of the patterned state is unity.  We willl be interested in two possible choices of $N$, namely $N_{23}[u]=bu^2-u^3$ and $N_{35}[u]=b u^3-u^5$.  The strength of the linear forcing term $r$ and the strength of the quadratic nonlinearity $b$ are left as parameters of the system.  
+
+There may be physical systems in which multiple patterned states with different characteristic wavelengths can exist simultanously.  We would like to develop a model for such a system and study the interaction and competiton between these patterned states.  We propose a modification to the Swift-Hohenberg equation in which such competition may be possible:
+\begin{equation}
+u_t= r u-\left(1+\partial_{x}^2\right)^2 \left[\left(q^2+\partial_{x}^2\right)^2+\delta \right] u+N[u]\label{eq:SH23m}.
+\end{equation}
+Linear stability analysis of this equation results in a marginal stability curve (Fig. \ref{fig:marginalstability}) where two wavelengths can compete with each other.  The first wavelength is  $k=1$, just as in the original SHE (Eq. \ref{eq:SH}), and the other occurs at 
+\beqn
+q_*=\frac{1}{2}\sqrt{1+3q^2 \pm\Delta}.
+\eeqn
+where $\Delta=\sqrt{(q^2-1)^2-8\delta}$ and $+$/ $-$ is used when $q>1$ and $q<1$ respectively.  We note that such solutions exist only when $(q^2-1)^2>8\delta$, which is the condition that there is a second minimum other than $k=1$ in the marginal stability curve.  The curve that defines the region of interest to us is also proportional to the marginal stability curve of the original Swift-Hohenberg operator with characteristic wavenumber $q$ and forcing $\delta$.  Why is this the case, does it have some physical interpretation?  This is not a constraining restriction since we will generally be interested in small values of $\delta$.
+\FIGmarginalstability
+When $\delta=0$ and $q_*=q$  both  become unstable at $r=0$. The instability of $q_*$ is shifted for nonzero values of $\delta$ by
+\beqn
+r_*=\frac{1}{128} \left(3( q^2-1)+\Delta\right)^2 \left( (q^2-1)^2- (q^2-1)\Delta+4 \delta \right).
+\eeqn
+
+We will be interested in the case that $\tfrac{8\delta}{(q^2-1)^2}<<1$,  so that the two competing wavelengths will have similar marginal stabilities and can thus compete.  This assumption allows us to approximate $q_*$ and $r_*$ as:
+\beqa
+q_*&\approx&q\left[1-\frac{4\delta}{(q^2-1)^2}\right] \\
+r_*&\approx& (q^2-1)^2 \delta
+\eeqa
+We note that the $q=1$ is a degenerate case that may need to be handlede seperately.  Another interesting regime could be when $q$ is close to one so that we have nearby wavelengths competing. We might also want to consider the case when $q>>1$ (or $q<<1$) so that the wavelengths of the patterns occur on different lengthscales.  This regime is of interest for quasicrystals?
+
+This equation has been studied by Bentley (2012), though with a slightly different parametrization.  The advantage of this parametrization over the one used by Bentley becomes apparent in the small $\delta$ limit.  We see that $q$ is approximately the wavenumber of the second competing pattern, and $\delta$ is proportional to the relative shift between the onsets of the two patterns.   We might also consider a slightly different parametrization in which the $\delta (1-k^2)^2$ is instead $\delta (1-k^2)$, the so-called "Proctor term" (?).  The advantage of our parametrization is two-fold: (1) the wavenumber of one of the patterns is exactly one. (2) The relations between $q_*$, $r_*$ and $q$ and $\delta$ are much simpler in our case.    Bentley has looked at this equation as a model for magnetorotational Taylor-Couette flows.  His focus is in the supercritical regime where the patterned states bifurcate from the homogeneous state with a supercritical pitchforc bifurcation.  He is currently working to publish his work.  We don't know what additional work he has done beyond his thesis that his advisor has shared with us.
+
+Just as in the case of the original Swift-Hohenberg equation (Eq. \ref{eq:SH}), this modified equation can be expressed in terms of a Lyaponuv functional as 
+where
+\beqn
+F[u]=
+\eeqn
+This implies that the system will always approach a steady state in time, and we can focus on time-independent solutions to give some insight into the dynamics of the system.
+
+\section{Numerical Results}
+The steady state solutions of this system as a function of the forcing strength $r$ can be found by numerical continuation.  Auto was used to compute the below bifurcation diagram and solutions.  
+
+\section{Future Work}
+
+
+\bibliography{WavelengthCompetitonBib}
+\end{document}
+
+
+Realistic systems will not always have a perfectly homogeneous forcing in space, and inhomogeneities may even lead to a way to manipulate dynamics of localized states. As a simple extension to Eq. \ref{eq:SH35}, we would now like to consider the case when the forcing has a periodic perturbation,
+\begin{equation}
+u_t= r(1+\delta \cos{\kappa x}) u -\left(1+\partial_{x}^2\right)^2u+bu^3-u^5\label{eq:SH35spf}.
+\end{equation}
+
+We can make some analytic progress on studying Eq.~\ref{eq:SH35spf} using techniques very similar to those used on the original equation (Eq.~\ref{eq:SH35}). We will look near the $r=0$ bifurcation point on a long timescale and a long spatial scale to get an amplitude equation at leading order.  In the special case that the periodicity of the forcing is half that of the natural wavelength, we obtain a parametrically forced Ginsburg-Landau equation for the amplitude.  
+
+\section{Scaling}
+We would like to look at small amplitude solutions in the neighborhood of the $r=0$ bifurcation where the periodic state branches off of the homogeneous state in the space of steady-state solutions.  We will take a multi-scale approach, defining a slow timescale $T=\epsilon^2t$, and long spatial scale $X=\epsilon x$ so that the derivatives become $\partial_t \rightarrow \partial_t+\epsilon^2\partial_T$ and $\partial_x \rightarrow \partial_x+\epsilon\partial_X$.  We will assume that the system will not change on the fast timescale, so we can neglect the $\partial_t$ term. With some trial and error, it can be seen that the appropriate scaling of forcing strength to probe the dynamics we are interested in will be $r=\epsilon^2 \mu$.     Additionally, we will not make any assumptions about $\delta$ yet, but will eventually want to consider the case that $\epsilon <<\delta <<1$.
+
+With this scaling, Eq. \ref{eq:SH35spf} becomes 
+\begin{equation}
+\epsilon^2 u_T = \epsilon^2 \mu(1+\delta \cos{\kappa x}) u -\left(1+(\partial_{x}+\epsilon \partial_X)^2\right)^2u+bu^3-u^5
+\label{eq:SH35spfeps}.
+\end{equation}
+Note we will also assume that the spatial periodicity of the forcing happens at a lengthscale comparable that of the characteristic wavelength of the patterned state.  In particular, we will focus on the case that $\kappa=2$, as this will lead a parametrically forced Ginzburg-Landau equation.
+
+\section{Expansion}
+We will write out the solution as an asymptotic expansion in the small parameter $\epsilon$:
+\begin{equation}
+u=\sum_{j=0}^{\infty} \epsilon^j u_j
+\end{equation}
+Since we want to look for small amplitude solutions, we will assume that $u_0=0$ and that the leading order solution comes in only at $\mathcal{O}(\epsilon)$. Furthermore, we can see by the structure of the nonlinear terms that we will not need the even powers of the expansion.  The equation that $u_2$ will need to satisfy, for example, will be identical to the one that $u_1$ will need to satisfy so that we could effectively redefine it by $u_1\rightarrow u_1+\epsilon u_2$.  We will finally note that the leading order effects of the spatially modulated forcing will by captured by making the expansion out to order $\mathcal{O}(\epsilon^3)$.   
+\begin{equation}
+u=\epsilon u_1 + \epsilon^3 u_3  + \mathcal{O}(\epsilon^5)
+\label{eq:AsympExpU}
+\end{equation}
+
+We can now plug in the asymptotic series form of the solution Eq. \ref{eq:AsympExpU}) into the scaled version of the SHE35 (Eq. \ref{eq:SH35spfeps}) and match terms in orders of $\epsilon$.  The leading order terms will be $\mathcal{O}(\epsilon)$:
+\begin{equation}
+u_1+2\partial_x^2 u_1 +\partial_x^4 u_1 = 0.
+\end{equation}
+This equation has a solution of the form
+\begin{equation}
+u_1(x,X,T)=A(X,T) e^{i x}+ \bar{A}(X,T) e^{-ix},
+\label{eq:u1sol}
+\end{equation}
+where $A(X,T)$ is a still undetermined complex amplitude that depends only on the slow timescale $T$ and the long lengthscale $X$, and $\bar{A}(X,T)$ is its complex conjugate. Collecting terms at the next order in $\epsilon$ will provide a solvability condition that we will use to determine $A$.
+
+We can now go on to look at the next terms in the expansion, which come in at $\mathcal{O}(\epsilon^3)$:
+\begin{eqnarray}
+u_3+2\partial_x^2 u_3 &+& \partial_x^4 u_3 =  \nonumber \\
+& & -\partial_T u_1-2\partial_X^2 u_1 - 6\partial_x^2 \partial_X^2 u_1 +\mu u_1 +\mu \delta \cos(\kappa x)  u_1 +b u_1^3
+\label{eq:AsympExpEps3}
+\end{eqnarray}
+Plugging in the form of the solution for $u_1$ from Eq. \ref{eq:u1sol} gives the following expression for the RHS of the equation above.
+\begin{eqnarray}
+\text{RHS}&=&  \nonumber \\ 
+& &\left(-A_T  +4 A_{XX}+\mu A + 3b |A|^2 A\right)e^{ix} + \left(-\bar{A}_T +4 \bar{A}_{XX}+\mu \bar{A} + 3b |A|^2 \bar{A}\right)e^{-ix} \nonumber \\
+& &+\frac{\mu\delta}{2} A\left(e^{i(1+\kappa)x}+e^{i(1-\kappa)x} \right) + \frac{\mu\delta}{2} \bar{A}\left( e^{-i(1+\kappa)x}+e^{-i(1-\kappa)x} \right) \nonumber \\
+& & +bA^3e^{3ix}+b\bar{A}^3e^{-3ix}
+\label{eq:RHSeps3}
+\end{eqnarray}
+The resonant terms of in the above expression (Eq. \ref{eq:RHSeps3}) must vanish in order for this equation to be solved, giving the desired equation that determines the complex amplitude $A$.  The choice of $\kappa$ determines if the effects of the spatially periodic forcing perturbation can be seen at this order.  In particular, the choice of $\kappa=2$, modifies the complex amplitude equation so that it includes a parametric forcing term (proportional to $\bar{A}$).
+
+\section{The 2:1 resonance in the forcing}
+We will now focus on the case that the period of the forcing perturbation is half that of the characteristic wavelength of the patterned state, namely that $\kappa=2$.  Plugging this into Eq. \ref{eq:AsympExpEps3} leads to the following equation for the complex amplitude from the solvability condition that resonant terms vanish:
+\begin{equation}
+-A_T  +4 A_{XX}+\mu A + 3b |A|^2 A+\frac{\mu\delta}{2}\bar{A}=0
+\label{eq:LGEpf1}
+\end{equation}
+
+With appropriate redefinitions of variables, we can put this equation into the following form
+\begin{equation}
+A_T  = \mu A + A_{XX} - |A|^2 A+\gamma\bar{A}
+\label{eq:LGEpf}
+\end{equation}
+where we have assumed that $b<0$.
+
+\subsection{Polar Coordinates}
+Equation \ref{eq:LGEpf}  can now be put into a form that resembles a particle orbiting in central potential by making the substitution $A=r e^{i\theta}$, where $r$ and $\theta$ are real functions of $X$ and $T$.  The resulting pair of real pde's is:
+\begin{subequations}
+\begin{align}
+\dot{r}&=\mu r - r^3 +r''-r\theta'^2+\gamma r \cos2\theta 
+\label{eq:PolarGLEpfr} \\
+r^2\dot{\theta}&=2 r r' \theta'+r^2\theta''-\gamma r^2 \sin 2\theta
+\label{eq:PolarGLEpfth}
+\end{align}
+\end{subequations}
+where the dot and prime represent derivatives with respect to the time $T$ and the position $X$, respectively.
+
+If we look for steady state solutions in time, we can reduce this problem to an ode with the dependent variable as space instead of time.  We can define a spatial {\it energy} $h$ and {\it angular momentum} $l$ by:
+\begin{eqnarray}
+l &=& r^2\theta' \\
+h &=& \frac{1}{2} r'^2 +\frac{l^2}{2r^2} +\frac{1}{2}\mu r^2 -\frac{1}{4} r^4
+\end{eqnarray}
+In the limit that $\gamma$ vanishes, these new variables are actually constants of motion of the amplitude Eq. \ref{eq:LGEpf}.  The problem described by Eq. \eqref{eq:PolarGLEpfr} and \eqref{eq:PolarGLEpfth} can be mapped onto the problem of a particle traveling in a central potential equivilent to a particle in a central potential if we consider dynamics in space instead of time.  The spatial energy $h$ has a kinetic term, a effective potential term from the spatial angular momentum $l$, and a central potental well term.  Equations \eqref{eq:PolarGLEpfr} and \eqref{eq:PolarGLEpfth} can now be rewritten in terms of the spatial energy and angular momentum as:
+\begin{subequations}
+\begin{align}
+l' &= \gamma r^2 \sin 2\theta 
+\label{eq:CentPotL} \\
+h'&= \gamma l \sin 2\theta-\gamma r r' \cos 2\theta
+\label{eq:CentPotH}
+\end{align}
+\end{subequations}
+
+Assuming $\epsilon <<\gamma <<1$ allows us to treat $l$ and $h$ as slowly varying quantities.  We could, in principle, apply the method of averaging to this equation to get spatially averaged equations that depend only on $l$ and $h$.  We would assume that these two quantities are constant and integrate over one period to average out the small variations of $r$ and $\theta$.  Unfortunately, this involves integrals that I'm not exactly sure how to do.
+
+We can use the interpretation of a particle in a central potential to help us find solutions to our original problem that are localized in space and steady-state in time.  These type of solutions correspond to  orbits of the particle that approach $r=0$ as $x\rightarrow \pm \infty$.  We could look for these kinds of solutions to the unperturbed problem (when $\gamma=0$) and then try to understand what the perturbation does to these solutions. 
+
+We can further simplify the energy equation by noting that the RHS is the spatial derivative of the quantity $-\half \gamma r^2 \cos 2 \theta$. By redefining the energy as
+\beqn
+\bar{h}=\frac{1}{2} r'^2 +\frac{l^2}{2r^2} +\frac{1}{2}\mu r^2 -\frac{1}{4} r^4+\half \gamma r^2 \cos 2 \theta,
+\label{eq:CowboyHat}
+\eeqn
+so that the potential is no longer radially symmetric.  A plot of this potential, which will be referred to as the {\it cowboy hat potential}, is shown in Fig. \ref{fig:CowboyHat}.
+\FIGcowboy
+The force corresponding the additional energy term is $\mathbf{F}=\gamma r (\cos2\theta \;\hat{r} - \sin2\theta \; \hat{\theta})$ is plotted in Fig. \ref{fig:CowboyForce}. 
+\FIGforce
+
+\bibliography{SpatialForcingBib}
+\end{document}
+
+
+
+
