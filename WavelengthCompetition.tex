@@ -11,6 +11,9 @@
 %\usepackage{pst-coil}
 %\usepackage{pst-plot}
 \usepackage{hyperref}
+\usepackage{float}
+\usepackage{subfig}
+
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{prob}{Problem}
@@ -67,10 +70,52 @@
 \caption{\label{fig:marginalstability} Linear stability of the modified Swift-Hohenberg equation with $q=2$ and $\delta=.1$.  The shaded region indicates linearly stable parameter regimes of the homogeneous solution with a forcing $r$ for a given wavenumber $k$.}
 \end{figure}
 }
-\newcommand{\FIGforce}{
+\newcommand{\FIGbifurcationdiagramA}{
 \begin{figure}[t]\center
-\includegraphics[width=60mm]{CowboyField.pdf}
-\caption{\label{fig:CowboyForce} A plot of the force corresponding to the term of the potential that breaks radial symmetry.}
+\includegraphics[width=120mm]{BifurcationDiagram1.png}
+\caption{\label{fig:bifurcationdiagram1} A Bifurcation diagram for the case that $q=1$ and $\delta=0$, showing a snaking branch that connects two periodic states.}
+\end{figure}
+}
+
+\newcommand{\FIGdoubleperiod}{
+\begin{figure}[htbp]
+  \begin{center}
+    \mbox{
+      \subfloat[solution before the loop]{\includegraphics[width=60mm]{dpb24.png}} \quad
+      \subfloat[solution after the loop]{\includegraphics[width=60mm]{dpb24u.png}} 
+      }
+    \caption{Solutions along periodic branch that bifurcations from $P24$ and connects with the snaking branch from $P20$.}
+    \label{fig:doubleperiod1}
+  \end{center}
+\end{figure}
+}
+
+\newcommand{\FIGsnakingA}{
+\begin{figure}[htbp]
+  \begin{center}
+    
+      \subfloat[1]{\includegraphics[width=60mm]{sb20a1.png}} \quad
+      \subfloat[2]{\includegraphics[width=60mm]{sb20a2.png}}\\
+      \subfloat[3]{\includegraphics[width=60mm]{sb20a3.png}} \quad
+      \subfloat[4]{\includegraphics[width=60mm]{sb20a4.png}} 
+      
+    \caption{Localized solutions along snaking branch that bifurcates from $P20$.}
+    \label{fig:snaking1}
+  \end{center}
+\end{figure}
+}
+
+
+\newcommand{\FIGsnakingmess}{
+\begin{figure}[htbp]
+  \begin{center}
+    \mbox{
+      \subfloat[Example solution from third bifurcation point along $P20$]{\includegraphics[width=60mm]{sb20cMess.png}} \quad
+      \subfloat[Example solution from second bifurcation point along $P24$]{\includegraphics[width=60mm]{sb24bMess.png}} 
+      }
+    \caption{Examples of solutions with seemingly random pulses. These solutions fall along messy branches that bifurcate from the primary periodic solutions}
+    \label{fig:snakingmess1}
+  \end{center}
 \end{figure}
 }
 
@@ -173,7 +218,18 @@ u_2(x,X,T)&=&C_{20}(X,T) \\
 \eeqa
 Noting that $L_1 u_1=0$, we see that
 \section{Numerical Results}
-The steady state solutions of this system as a function of the forcing strength $r$ can be found by numerical continuation.  Auto was used to compute the below bifurcation diagram and solutions.  
+The steady state solutions of this system as a function of the forcing strength $r$ can be found by numerical continuation.  Auto was used to compute the below bifurcation diagram and solutions.  We have used a domain size of 20 wavelengths for these simulations, but made use of the reflection symmetry to only simulate half.  
+
+\subsection{The one-wavelength case}
+The case that $q=1$ and $\delta=0$ is the simplest case to consider since there is only one characteristic wavelength to the problem, namely 1.  We already see a very interesting bifurcation diagram here (Fig. \ref{fig:bifurcationdiagram1}).
+\FIGbifurcationdiagramA
+The periodic branch bifurcating from the homogeneous solution at $r=0$ has 20 periods and will be called $P20$.  The first secondary bifurcation from $P20$, forms a snaking branch of one-pulse localized states like the ones shown in Fig. \ref{fig:snaking1}.
+\FIGsnakingA
+This branch eventually reconnects to another periodic branch that does not have a constant amplitude and has 12 periods in the domain (See Fig. \ref{fig:doubleperiod1}.
+\FIGdoubleperiod
+This periodic solution does not bifurcate from the homogenous solution, but from the $P24$ periodic branch.  It also has a loop in it, where the solution structure inverts so that the small oscillation are on the top instead of the bottom. The bifurcation is  actually the third branch point along the $P24$ branch if followed starting from the homogeneous solution.  The previous two branches along $P24$ are quite messy with seemingly randomly positioned pulses (See Fig. \ref{fig:snakingmess1} for an example).
+\FIGsnakingmess  Additionally, we have looked at the solutions formed at the next two bifurcation points along the $P20$ periodic branch.  The second branch snakes with two-pulse localized states while the third branch is messy with seemingly randomly distributed pulses.
+
 
 \section{Future Work}
 
