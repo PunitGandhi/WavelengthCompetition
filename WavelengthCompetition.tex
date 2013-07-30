@@ -184,7 +184,11 @@ F[u]=
 This implies that the system will always approach a steady state in time, and we can focus on time-independent solutions to give some insight into the dynamics of the system.
 
 \section{Weakly Nonlinear Analysis}
-We would like to look at small amplitude solutions in the neighborhood of the $r=0$ bifurcation where the periodic state branches off of the homogeneous state in the space of steady-state solutions.  We will take a multi-scale approach, defining a slow timescale $T=\epsilon^2t$, and long spatial scale $X=\epsilon x$ so that the derivatives become $\partial_t \rightarrow \partial_t+\epsilon^2\partial_T$ and $\partial_x \rightarrow \partial_x+\epsilon\partial_X$.  We will assume that the system will not change on the fast timescale, so we can neglect the $\partial_t$ term. With some trial and error, it can be seen that the appropriate scaling of forcing strength to probe the dynamics we are interested in will be $r=\epsilon^2 \mu$. In addition, we will choose to scale the shift parameter $\delta\rightarrow\epsilon^2 \delta$ so that the difference in onset of instability for the two wavelengths will be of the same order of the forcing that we consider.
+We would like to look at small amplitude solutions in the neighborhood of the $r=0$ bifurcation where the periodic state branches off of the homogeneous state in the space of steady-state solutions.  We will take a multi-scale approach, defining a slow timescale $T=\epsilon^2t$, and long spatial scale $X=\epsilon x$ so that the derivatives become $\partial_t \rightarrow \partial_t+\epsilon^2\partial_T$ and $\partial_x \rightarrow \partial_x+\epsilon\partial_X$.  We will assume that the system will not change on the fast timescale, so we can neglect the $\partial_t$ term. With some trial and error, it can be seen that the appropriate scaling of forcing strength to probe the dynamics we are interested in will be $r=\epsilon^2 \mu$. In addition, we will choose to scale the shift parameter $\delta\rightarrow\epsilon^2 \delta$ so that the difference in onset of instability for the two wavelengths will be of the same order of the forcing that we consider.  
+
+There are a few issues to consider here, especially after looking at the work of Bentley.  I picked the above scaling to match what is standard in the original Swift-Hohenberg equation.  I had mostly completed this calculation before looking at Bentley's thesis, and noticed that he picked a slightlly different scaling.    His large spacial scale goes like  $X=\epsilon^{1/2} x$ instead of  $X=\epsilon x$ .   Considering that we have upped the spatial order of the equation from 4 to 8,  his scaling makes sense because it "keeps the balance between the spatial and time orders the same."   The other thing he does differently that what I have done is to look near the codimension 3 point where $\delta=0$ and $q=1$, whereas I have set up my equations  to be valid for arbitrary (rational) values of q that do not necesarily need to be close together.  I do, however, in this analysis assume that q is of order 1.  Choosing q either very large or small is of interest, and should be done as well.  The cost of my approach is that I require two coupled amplitudes that must be solved whereas Bentley can get a single amplitude equation in one variable.  Since his amplitude varies over length scales of order $\epsilon^{-1/2}$ while mine two amplitudes vary over length scales order $\epsilon^{-1}$, I am guessing the physical explanation is that he is somehow incorporating the beat frequencies from my two amplitudes as a slowly varying modulation?  Since I have gotten so far into my calculation before realizing that I might even consider a different scaling, I decided to go ahead and finish it to see what I get.
+
+One other issue that arises, comes due to my choice of how to write down the equation. As was discussed in the Introduction, $q$ is not actually the wavenumber of the second pattern and yet it is the wavenumber of the leading order problem in this scaling.  The shift in wavenumber happens at a very high order, so maybe it doesn't appear at the order of calculation I'm working at.  I'm guessing that when it does appear, it appears as a correction to the slowly varying amplitude.  The other option is that I should change the form of my solution to include corrections directly to the wavenumber, $u~B e^{i(k_0+\epsilon k_1+...)x}$.  I'm not sure if this is a problem or not yet, but I need to check this a little more carefully.
 
 The linear part of the modified Swift-Hohenberg equation (Eq.~\ref{eq:SHm}), 
 \beqn
@@ -239,8 +243,10 @@ Noting that $L_1 u_1=0$, we see that substituting Eqs.~\ref{eq:sol23o1} and ~\re
 In order to proceed with the analysis, we will eventually need to make some assumptions about the choice of $q$.  We will assume that $q=m/n$ is a rational number where $m$ and $n$ are relatively prime integers. In this case, we want to perform our Fourier analysis on a domain of size $2\pi n$.
 We can make use of orthagonality conditions to derive relations between the various amplitudes.  Applying the integral operater $\tfrac{1}{2\pi n}\int_{-n\pi }^{ n\pi} \; \text{d}x$ to Eq.~\ref{eq:solvability2} gives:
 \beqn
- \left[2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right] +\frac{ \sin(m-n)\pi}{(m-n)\pi} \left[2  b B_{11} \bar{A}_{11}+2  b\bar{B}_{11} A_{11} \right]=0
+ \left[2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right] +\delta_{\text{d}}(q-1) \left[2  b B_{11} \bar{A}_{11}+2  b\bar{B}_{11} A_{11} \right]=0
+% \left[2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right] +\frac{ \sin(m-n)\pi}{(m-n)\pi} \left[2  b B_{11} \bar{A}_{11}+2  b\bar{B}_{11} A_{11} \right]=0
 \eeqn
+where $\delta_{\text{d}}$ is the Dirac delta function.
 Assuming that $q\neq 1$, this gives a condition that 
 \beqn
 C_{20}=\frac{2 b}{q^4} (|A_{11}|^2+|B_{11}|^2)
@@ -253,30 +259,76 @@ C_{20}=\frac{2 b}{q^4} (|A_{11}+B_{11}|^2)
 
 Applying $\tfrac{1}{2\pi n }\int_{- n\pi}^{n\pi}  \; \text{d}x\; e^{-ix}$ and $\tfrac{1}{2\pi n }\int_{- n\pi}^{n\pi}  \; \text{d}x\; e^{-i q x}$ give:
 \beqn
-\frac{\sin(2m-n) \pi  }{(2m-n)\pi } \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right] +\frac{ \sin (m-2n)\pi }{(m-2n)\pi} \left[2bB_{11}\bar{A}_{11} \right]=0
+\delta_{\text{d}}(q-1/2) \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right] +\delta_{\text{d}}(q-2) \left[2bB_{11}\bar{A}_{11} \right]=0
+%\frac{\sin(2m-n) \pi  }{(2m-n)\pi } \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right] +\frac{ \sin (m-2n)\pi }{(m-2n)\pi} \left[2bB_{11}\bar{A}_{11} \right]=0
 \eeqn
 and
 \beqn
-\frac{\sin(2m-n) \pi  }{(2m-n)\pi }\left[2b\bar{B}_{11} A_{11} \right]  +\frac{ \sin (m-2n)\pi }{(m-2n)\pi} \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]=0
+\delta_{\text{d}}(q-1/2)\left[2b\bar{B}_{11} A_{11} \right]  +\delta_{\text{d}}(q-2) \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]=0
+%\frac{\sin(2m-n) \pi  }{(2m-n)\pi }\left[2b\bar{B}_{11} A_{11} \right]  +\frac{ \sin (m-2n)\pi }{(m-2n)\pi} \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]=0
 \eeqn
 respectively.  These equations are trivially solved, unless $q=2$ or $q=1/2$.  
 
 Applying $\tfrac{1}{2\pi n}\int_{-n \pi}^{ n\pi}  \; \text{d}x\; e^{2i x}$  and $\tfrac{q}{2\pi n}\int_{-n\pi}^{n\pi}  \; \text{d}x\; e^{2iqx}$ give:
 \begin{align}
-\left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]+\frac{ \sin(m-n)\pi }{(m-n)\pi} \left[2bB_{11}A_{11}\right]
-+\frac{\sin2(m-n) \pi  }{2(m-n)\pi q} \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]\nonumber \\
-+\frac{ \sin(m-3n)\pi }{(m-3n)\pi} \left[2bB_{11}\bar{A}_{11}\right]=0
+0=&\left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]\nonumber \\
+&+\delta_{\text{d}}(q-1) \left[2bB_{11}A_{11}+b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]+\delta_{\text{d}}(q-3) \left[2bB_{11}\bar{A}_{11}\right]
+%\left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]+\frac{ \sin(m-n)\pi }{(m-n)\pi} \left[2bB_{11}A_{11}\right]
+%+\frac{\sin2(m-n) \pi  }{2(m-n)\pi} \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]\nonumber \\
+%+\frac{ \sin(m-3n)\pi }{(m-3n)\pi} \left[2bB_{11}\bar{A}_{11}\right]=0
 \end{align}
 and
 \begin{align}
-\left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]+\frac{ \sin(m-n)\pi }{(m-n)\pi} \left[2bB_{11}A_{11}\right]
-+\frac{\sin2(m-n) \pi  }{2(m-n)\pi q} \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]\nonumber \\
-+\frac{ \sin(3m-n)\pi }{(3m-n)\pi} \left[2b\bar{B}_{11}A_{11}\right]=0
+0=&\left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]\nonumber \\
+&+\delta_{\text{d}}(q-1) \left[2bB_{11}A_{11}+b A_{11}^2-9 (q^2-4)^2 A_{22}\right]+\delta_{\text{d}}(q-1/3) \left[2b\bar{B}_{11}A_{11}\right]
+%\left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]+\frac{ \sin(m-n)\pi }{(m-n)\pi} \left[2bB_{11}A_{11}\right]
+%+\frac{\sin2(m-n) \pi  }{2(m-n)\pi q} \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]\nonumber \\
+%+\frac{ \sin(3m-n)\pi }{(3m-n)\pi} \left[2b\bar{B}_{11}A_{11}\right]=0
 \end{align}
 respectively.  In the case that $q=1$, we again get the solution consistent with combining the two amplitudes into a single variable.  The $q=3,1/3$ cases give a coupling between the two amplitudes in this equation, and all other cases give:
 \beqn
 A_{22}=\frac{bA_{11}^2}{9 (q^2-4)^2} \qquad B_{22}=\frac{bB_{11}^2}{9q^4 (1-4q^2)^2}
 \eeqn
+
+Now, going on to the $\mathcal{O}(\epsilon^3)$, we can write down the solution in the form:
+\beqa
+u_3(x,X,T)=C_{30}(X,T)  + \biggl[ &A&_{31}(X,T)e^{i x}+A_{32}(X,T)e^{2 i x}+A_{33}(X,T)e^{3 i x}\\ 
++&B&_{31}(X,T)e^{i q x} + B_{32}(X,T)e^{2 i q x}+B_{33}(X,T)e^{3 i q x} +c.c.\biggr]\nonumber
+\label{eq:sol23o3}
+\eeqa
+
+In order to get the solvability conditions that determine the leading order amplitudes, we need only look at the following two  projections of this equation:   $\tfrac{1}{2\pi n}\int_{-n\pi}^{n\pi}  \; \text{d}x\; e^{-ix}$ and $\tfrac{q}{2\pi n}\int_{- n\pi}^{n \pi}  \; \text{d}x\; e^{-iqx}$.  The conditions will come from forcing these projections that result in resonance terms to vanish.  Leaving $q$ as an arbitrary rational number makes the calculation more difficult because we must now calculate more terms of the equation as they may have a component along these directions.  We will calculate each term in the equation, and then look at the final equations resulting from the projections.  An alternative way to look at this problem is to make use of the Fredhom alternative theorem, which will result in basically the same calculation.
+
+We first not that $L_0 u_3$ and $L_1 u_2$ cannot have a component along the directions we are looking for as both directions lie completely in the kernels of these operators.  We must therefore compute $L_2 u_1$ and the two nonlinear terms in order to find the solvability condition.
+\begin{align}
+L_2 u_1=&\left[4\left(q^2-1\right)^2 \partial_X^2 A_{11}+\mu A_{11}-\partial_T A_{11}\right]e^{i x}\nonumber \\
++&\left[4q^2\left(q^2-1\right)^2 \partial_X^2 B_{11}+\left(\mu-\delta (q^2-1)^2\right) B_{11}-\partial_T B_{11}\right]e^{i q x} \nonumber\\
++&c.c
+\end{align}
+\begin{align}
+2 b u_1 u_2=2b\biggr[&A_{11}A_{22} e^{3ix}+A_{11}A_{21} e^{2ix}+\left(A_{11}C_{20}+A_{22}\bar{A}_{11}\right) e^{ix}+A_{11}\bar{A}_{21}\nonumber \\+&B_{11}B_{22} e^{3iqx}+B_{11}B_{21} e^{2iqx}+\left(B_{11}C_{20}+B_{22}\bar{B}_{11}\right) e^{iqx}+B_{11}\bar{B}_{21}\nonumber \\
++&\left(A_{11}B_{21}+B_{11}A_{21}\right) e^{i(q+1)x}+\left(\bar{A}_{11}B_{21}+B_{11}\bar{A}_{21}\right) e^{i(q-1)x}\nonumber \\
++&A_{22}B_{11} e^{i(q+2)x}+\bar{A}_{22}B_{11} e^{i(q-2)x}+A_{11}B_{22} e^{i(2q+1)x}+\bar{A}_{11}B_{22} e^{i(2q-1)x}\nonumber \\
++&c.c.\biggr]
+\end{align}
+\begin{align}
+-u_1^3=-\biggl[&A_{11}^3 e^{3ix}+\left(3|A_{11}|^2A_{11}+6|B_{11}|^2A_{11}\right) e^{ix}\nonumber\\
++&B_{11}^3 e^{3iqx}+\left(3|B_{11}|^2B_{11}+6|A_{11}|^2B_{11}\right) e^{iqx}\nonumber\\
++&3A_{11}^2 B_{11} e^{i(q+2)x}+3\bar{A}_{11}^2 B_{11} e^{i(q-2)x}+3A_{11}B_{11}^2  e^{i(2q+1)x}+3\bar{A}_{11}B_{11}^2  e^{i(2q-1)x}\nonumber\\
++&c.c.\biggr]
+\end{align}
+The final solvability conditions become:
+\begin{align}
+\left[\left(4\left(q^2-1\right)^2 \partial_X^2 A_{11}+\mu A_{11}-\partial_T A_{11}\right)+2b\left(A_{11}C_{20}+A_{22}\bar{A}_{11}\right)-\left(3|A_{11}|^2A_{11}+6|B_{11}|^2A_{11}\right)\right]\nonumber\\
++\delta_{\text{d}}(q-1)\left[\left(4q^2\left(q^2-1\right)^2 \partial_X^2 B_{11}+\left(\mu-\delta (q^2-1)^2\right) B_{11}-\partial_T B_{11}\right)+2b\left(B_{11}C_{20}+B_{22}\bar{B}_{11}\right) -\left(3|B_{11}|^2B_{11}+6|A_{11}|^2B_{11}\right)\right]
+\end{align}
+
+If $q\neq 1,2,1/2,3, 1/3$ than the equations become
+\begin{align}
+\dot{A}=\mu A+4\left(q^2-1\right)^2  A''-\left(3-\frac{4 b^2}{q^4}-\frac{2 b^2}{9(q^2-4)^2}\right)|A|^2A-\left(6-\frac{4 b^2}{q^4} \right)|B|^2 A\\
+\dot{B}=\left(\mu-\delta (q^2-1)^2\right) B+4q^2\left(q^2-1\right)^2  B''-\left(3-\frac{4 b^2}{q^4}-\frac{2 b^2}{9q^2(1-4q^2)^2}\right)|B|^2B-\left(6-\frac{4 b^2}{q^4} \right)|A|^2 B
+\end{align}
+
 
 
 \subsection{The cubic-quintic nonlinearity}
@@ -337,6 +389,9 @@ and
 &+\frac{\sin2 \pi / q }{2\pi/ q}\left[\tfrac{1}{q-1}\left(b A_{11}^2-9 (q^2-4)^2 A_{22}\right)+\tfrac{1}{q+1}\left(b\bar{A}_{11}^2-9 (q^2-4)^2 \bar{A}_{22}\right)\right]
 \end{align}
 respectively
+
+
+
 
 
 
