@@ -82,6 +82,12 @@
 \caption{\label{fig:bifurcationdiagram1} A Bifurcation diagram for the case that $q=1$ and $\delta=0$, showing a snaking branch that connects two periodic states.}
 \end{figure}
 }
+\newcommand{\FIGbifurcationdiagramB}{
+\begin{figure}[h]\center
+\includegraphics[width=120mm]{BifurcationDiagram2.png}
+\caption{\label{fig:bifurcationdiagram2} A Bifurcation diagram for the case that $q=1$ and $\delta=0$, showing the connection of two branches emerging from the $P20$ periodic state.}
+\end{figure}
+}
 
 \newcommand{\FIGdoubleperiod}{
 \begin{figure}[h]
@@ -134,6 +140,7 @@
 
 \author{Punit Gandhi}
  \email{punit_gandhi@berkeley.edu}
+\author{C\'edric Beaume}
 \author{Edgar Knobloch}
  \email{knobloch@berkeley.edu}
 \affiliation{Department of Physics, University of California, Berkeley CA 94720, USA}
@@ -159,7 +166,7 @@ Linear stability analysis of this equation results in a marginal stability curve
 \beqn
 q_*=\frac{1}{2}\sqrt{1+3q^2 \pm\Delta}.
 \eeqn
-where $\Delta=\sqrt{(q^2-1)^2-8\delta}$ and $+$/ $-$ is used when $q>1$ and $q<1$ respectively.  We note that such solutions exist only when $(q^2-1)^2>8\delta$, which is the condition that there is a second minimum other than $k=1$ in the marginal stability curve.  The curve that defines the region of interest to us is also proportional to the marginal stability curve of the original Swift-Hohenberg operator with characteristic wavenumber $q$ and forcing $\delta$.  \NOTE{Why is this the case, does it have some physical interpretation?}  This is not a constraining restriction since we will generally be interested in small values of $\delta$.
+where $\Delta=\sqrt{(q^2-1)^2-8\delta}$ and $+$/ $-$ is used when $q>1$ and $q<1$ respectively.  We note that such solutions exist only when $(q^2-1)^2>8\delta$, which is the condition that there are  local extrema other than $k=1$ in the marginal stability curve.  We must furthe make the restriction that $\delta>-(q^2-1)^2$ in order that $k=1$ is infact a local minimum.  If both these conditions are met, there will be a minimum at $q^*$ in addtion to 1.  The curve that defines the region of interest to us is also proportional to the marginal stability curve of the original Swift-Hohenberg operator with characteristic wavenumber $q$ and forcing $\delta$.  \NOTE{Why is this the case, does it have some physical interpretation?}  This is not a constraining restriction since we will generally be interested in small values of $\delta$.
 \FIGmarginalstability
 When $\delta=0$, we have that $q_*=q$  and both wavelengths  become unstable at $r=0$. The instability of $q_*$ is shifted for nonzero values of $\delta$ by
 \beqn
@@ -168,10 +175,10 @@ r_*=\frac{1}{128} \left(3( q^2-1)+\Delta\right)^2 \left( (q^2-1)^2- (q^2-1)\Delt
 
 We will be interested in the case that $\tfrac{8\delta}{(q^2-1)^2}<<1$,  so that the two competing wavelengths will have similar marginal stabilities and can thus compete.  This assumption allows us to approximate $q_*$ and $r_*$ as:
 \beqa
-q_*&\approx&q\left[1-\frac{4\delta}{(q^2-1)^2}\right] \\
-r_*&\approx& (q^2-1)^2 \delta
+q_*&\approx&q\left[1-\frac{\delta}{2q^2(q^2-1)^2}+\frac{\left(9 q^2-1\right) \delta ^2}{8 q^4 \left(q^2-1\right)^3}\right] \\
+r_*&\approx& (q^2-1)^2 \delta-\delta^2
 \eeqa
-We note that the $q=1$ is a degenerate case that may need to be handled separately.  Another interesting regime could be when $q$ is close to one so that we have nearby wavelengths competing. We might also want to consider the case when $q>>1$ (or $q<<1$) so that the wavelengths of the patterns occur on different lengthscales.  This regime is of interest for quasicrystals?
+We note that the $q=1$ is a degenerate case that may need to be handled separately.  In terms of the our analysis here, $q=1$ requires that $\delta=0$ and in this case, $q_*=q$ and $r_*=0$.  Another interesting regime could be when $q$ is close to one so that we have nearby wavelengths competing. We might also want to consider the case when $q>>1$ (or $q<<1$) so that the wavelengths of the patterns occur on different lengthscales.  This regime is of interest for quasicrystals?
 
 This equation has been studied by Bentley (2012), though with a slightly different parametrization.  The advantage of this parametrization over the one used by Bentley becomes apparent in the small $\delta$ limit.  We see that $q$ is approximately the wavenumber of the second competing pattern, and $\delta$ is proportional to the relative shift between the onsets of the two patterns.   We might also consider a slightly different parametrization in which the $\delta (1-k^2)^2$ is instead $\delta (1-k^2)$, the so-called "Proctor term" (I think).  The advantage of our parametrization is two-fold: (1) the characteristic wavenumber of one of the patterns is exactly one. (2) The relations between $q_*$, $r_*$ and $q$ and $\delta$ are much simpler in our case.    Bentley has looked at this equation as a model for magnetorotational Taylor-Couette flows.  His focus is in the supercritical regime where the patterned states bifurcate from the homogeneous state with a supercritical pitchfork bifurcation.  He is currently working to publish his work.  We don't know what additional work he has done beyond his thesis that his advisor has shared with us.
 
@@ -202,10 +209,11 @@ L_1 =& -4\left(1+\partial_x^2\right)  \left(q^2+\partial_x^2\right) \left(q^2+1+
 L_2 =&- 2 \left[14 \partial_x^6+15  \left(q^2+1\right)\partial_x^4+3 \left(q^4+4 q^2+1\right) \partial_x^2+q^2\left(q^2+1\right)\right] \partial_X^2\nonumber\\  
 & \qquad -\delta \left[1+ \left(2+\partial_x^2\right)\partial_x^2\right] +\mu -\partial_T \\
 L_3 =& -4   \left[ \left(14 \partial_x^4+10  \left(q^2+1\right)\partial_x^2+q^4+ 4 q^2+1\right)\partial_X^2+\delta\left(1 +\partial_x^2\right)\right]\partial_x \partial_X \\
-L_4 =& -\left[\partial_X^2 \left(70 \partial_x^4+30\left(q^2+1\right) \partial_x^2 +q^4 +4 q^2+1\right)+2 \delta\left(1 +3 \partial_x^2 \right) \right] \partial_X^2  
+L_4 =& -\left[\partial_X^2 \left(70 \partial_x^4+30\left(q^2+1\right) \partial_x^2 +q^4 +4 q^2+1\right)+2 \delta\left(1 +3 \partial_x^2 \right) \right] \partial_X^2  \\
+L_5=& -4  \left[ \left(3(q^2+1)+14 \partial_x^2\right)\partial_X^2+\delta \right]\partial_x \partial_X^3\\
+L_6=& - \left[2 \left(q^2+1+14 \partial_x^2\right)\partial_X^2+\delta \right]\partial_X^4 
 \end{align}
 \end{subequations}
-
 
 
 \subsection{The quadratic-cubic nonlinearity}
@@ -325,14 +333,92 @@ The final solvability conditions become:
 
 If $q\neq 1,2,1/2,3, 1/3$ than the equations become
 \begin{align}
-\dot{A}=\mu A+4\left(q^2-1\right)^2  A''-\left(3-\frac{4 b^2}{q^4}-\frac{2 b^2}{9(q^2-4)^2}\right)|A|^2A-\left(6-\frac{4 b^2}{q^4} \right)|B|^2 A\\
-\dot{B}=\left(\mu-\delta (q^2-1)^2\right) B+4q^2\left(q^2-1\right)^2  B''-\left(3-\frac{4 b^2}{q^4}-\frac{2 b^2}{9q^2(1-4q^2)^2}\right)|B|^2B-\left(6-\frac{4 b^2}{q^4} \right)|A|^2 B
+\dot{A}&=\mu A+a  A''-\alpha|A|^2A-\gamma|B|^2 A\\
+\dot{B}&=\left(\mu-\frac{\delta a}{4}\right) B+q^2 a  B''-\beta|B|^2B-\gamma|A|^2 B
 \end{align}
+where $a=4(q^2-1)^2$, $\alpha=3-\tfrac{4 b^2}{q^4}-\tfrac{2 b^2}{9(q^2-4)^2}$, $\beta=3-\tfrac{4 b^2}{q^4}-\tfrac{2 b^2}{9q^2(1-4q^2)^2}$, and $\gamma=6-\frac{4 b^2}{q^4}$. We see from this equation that the $q=1$ case becomes uninteresting because the spatial derivative term vanishes.  This would have been prevented if we used the spatial scaling of Bentley.
 
+We can gain some insight into these coupled equations by rewriting the amplitudes in terms of polar coordinates as $A=r e^{i\theta}$ and $b= s e^{i\phi}$.  Using these variables, the two complex equations can be written as the following 4 real equations:
+\begin{subequations}
+\begin{align}
+\dot{r}=&\mu r + a(r'' - r\theta'^2) -\alpha r^3-\gamma s^2 r
+\label{eq:rpolar} \\
+r^2\dot{\theta}=&a(r^2\theta')'
+\label{eq:thpolar}\\
+\dot{s}=&(\mu-\delta a/4) s + q^2 a(s'' - s\phi'^2) -\beta s^3-\gamma r^2 s
+\label{eq:spolar}\\
+s^2\dot{\phi}=&q^2 a (s^2\phi')'
+\label{eq:phpolar}
+\end{align}
+\end{subequations}
+If we focus on time-independent solutions, we can now use the standard trick of mapping the above equations onto a problem of particles in a central potential.  In this case there are two particles in the potential that are coupled together.  The angular momentum of each particle $l_A=r^2\theta'$ and $l_B=s^2\phi'$ are constants of the motion along with the total energy of the system $h=h_A+h_B - h_c$.  Here the energy of the two particles are 
+\begin{subequations}
+\begin{align}
+h_A=&\frac{1}{2} a r'^2 +\frac{1}{2}\mu r^2 + \frac{al_A^2}{2r^2}-\frac{\alpha}{4}r^4
+\label{eq:hA} \\
+h_B=&\frac{1}{2}q^2 a s'^2 +\frac{1}{2}(\mu-\delta a/4) s^2 + \frac{q^2al_B^2}{2s^2}-\frac{\beta}{4}s^4
+\label{eq:hBr}
+\end{align}
+\end{subequations}
+and the coupling term is $h_c=\frac{1}{2}\gamma r^2 s^2$.  In these new variables, the equations of motion become
+\begin{subequations}
+\begin{align}
+h_A'=&\gamma s^2r r'\\
+h_B'=&\gamma r^2 s s'\\
+l_A'=&0\\
+l_B'=&0
+%\label{eq:msh23o3}
+\end{align}
+\end{subequations}
 
 
 \subsection{The cubic-quintic nonlinearity}
 
+
+\section{Weakly Nonlinear Analysis REDO}
+In this section, we consider the scaling analogous to what Bentley did in which the long spatial scale is defined by $x=\epsilon^{1/2}X$ instead of $x=\epsilon X$ as in the previous section.  All other scalings are identical to the previous section.
+The linear part of the modified Swift-Hohenberg equation (Eq.~\ref{eq:SHm}), 
+\beqn
+L= r-\left(1+\partial_{x}^2\right)^2 \left[\left(q^2+\partial_{x}^2\right)^2+\delta \right],
+\eeqn
+can be expanded as $L=L_0+\epsilon^{1/2} L_{1/2}+\epsilon L_1+\epsilon^{3/2} L_{3/2}+\epsilon^2 L_2+...$ where:
+\begin{subequations}
+\begin{align}
+L_0 =& -\left(1+\partial_x^2\right)^2 \left(q^2+\partial_x^2\right)^2 \\
+L_{1/2} =& -4\left(1+\partial_x^2\right)  \left(q^2+\partial_x^2\right) \left(q^2+1+2 \partial_x^2\right)\partial_x\partial_X \\
+L_1 =&- 2 \left[14 \partial_x^6+15  \left(q^2+1\right)\partial_x^4+3 \left(q^4+4 q^2+1\right) \partial_x^2+q^2\left(q^2+1\right)\right] \partial_X^2\\  
+L_{3/2} =& -4   \left[ 14 \partial_x^4+10  \left(q^2+1\right)\partial_x^2+q^4+ 4 q^2+1\right]\partial_x \partial_X^3 \\
+L_2 =& -\left[ 70 \partial_x^4+30\left(q^2+1\right) \partial_x^2 +q^4 +4 q^2+1\right]\partial_X^4-\delta\left(1 +\partial_x^2\right)+\mu-\partial_T  \\
+L_{5/2} =& -4 \left[ \left(3(q^2+1)+14 \partial_x^2\right)\partial_X^4+\delta(1 +\partial_x^2) \right] \partial_x \partial_X  \\
+L_{3} =& -2 \left[ \left(q^2+1+14 \partial_x^2\right)\partial_X^4 +\delta(1 +3 \partial_x^2) \right] \partial_X^2 
+\end{align}
+\end{subequations}
+
+\subsection{The quadratic-cubic nonlinearity}
+We will first consider the case when $N=N_{23}$ so that the modified Swift-Hohenberg equation can be written as $L[u]-N_{23}[u]=0$.  We will assume that the solution can be written as an asymptotic series with the leading term of order $\epsilon$, namely $u=\epsilon u_1 + \epsilon^{3/2} u_{3/2} +\epsilon^2 u_2+...$ 
+
+We can then write out the resulting equation at each order of $\epsilon$ by matching terms at the proper order.
+\begin{subequations}
+\begin{align}
+\mathcal{O}(\epsilon): \:  &-L_0 u_1 =0
+\label{eq:msh23o1b} \\
+\mathcal{O}(\epsilon^{3/2}): \: &-L_0 u_{3/2} = L_{1/2} u_1 
+\label{eq:msh23o15b} \\
+\mathcal{O}(\epsilon^2): \:  &-L_0 u_2 = L_{1/2} u_{3/2} +L_1 u_1 +b u_1^2
+\label{eq:msh23o2b}\\
+\mathcal{O}(\epsilon^{5/2}): \:  &-L_0 u_{5/2} = L_{1/2} u_{2} +L_1 u_{3/2}+ L_{3/2} u_1 +2b u_1 u_{3/2}
+\label{eq:msh23o25b}\\
+\mathcal{O}(\epsilon^{3}): \:  &-L_0 u_{3} = L_{1/2} u_{5/2} +L_1 u_{2}+ L_{3/2} u_{3/2}+L_2 u_1   +b u_{3/2}^2+2b u_1 u_2 -u_1^3
+\label{eq:msh23o25b}
+\end{align}
+\end{subequations}
+
+The solution to the $\mathcal{O}(\epsilon)$ equation can be expressed in terms of the yet to be determined complex amplitudes $A_1, B_1$ as:
+\beqn
+u_1(x,X,T)=A_{11}(X,T)e^{i x} +B_{11}(X,T)e^{i q x} +c.c.
+\label{eq:sol23o1}
+\eeqn
+Furthermore, since $L_{1/2} u_1=0$, we can absorb $u_{3/2}$ into $u_1$ as a correction. 
 
 
 \section{Numerical Results}
@@ -349,6 +435,36 @@ This periodic solution does not bifurcate from the homogeneous solution, but fro
 \FIGsnakingmess  
 Additionally, we have looked at the solutions formed at the next two bifurcation points along the $P20$ periodic branch.  The second branch snakes with two-pulse localized states while the third branch is messy with seemingly randomly distributed pulses.
 
+Another example of where a  multipulse state branch connects to a secondary periodic state branch is shown in Fig.~\ref{fig:bifurcationdiagram2}.  In this case, a five pulse state grows into the secondary periodic state upon each pulse doubling in size.  Note that this situation is slightly different in that both branches come from the same primary periodic branch.  It is also interesting to note that another five pulse branch appears below the periodic ( or ten pulse) branch, but does not connect as far as I've followed it. The secondary periodic branch with 10 periods shown in this figure contains a loop near $r=0.3$ just as the secondary periodic branch with 12 periods did in Fig.~\ref{fig:bifurcationdiagram1}.  
+\FIGbifurcationdiagramB
+
+There are several periodic solutions branching from the homogenous state between $P20$ and $P24$.  By looking at the secondary branches from these periodic states, we hope to see a pattern start to emerge with the location of multipulse states.  Note that we only track multipulse states in which all pulses are identical.  The table below lists in order, the periodic solutions along the diagram from in order of increasing forcing.  We would like to note that we can also interpret the periodic solution shown in Fig.~\ref{fig:doubleperiod1} as a twelve pulse state that just happens to exactly fill the simulation domain.  There are several solutions of this type that can be seen as a multipulse state with half the number of pulses as the periodic branch from which it emerges, or as a periodic solution with twice the wavelength of the branch from which it emerges.  Note that the table is still incomplete as on $P20$ has been completely scanned.  We have only looked at the first 5 branch points along most of the other periodic branches.
+
+
+\begin{table}[ht]
+\caption{Periodic branches that emerge from the homogenous branch} % title of Table
+\centering % used for centering table
+\begin{tabular}{c l} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+Primary Periodic Branch  & Secondary Multipulse branches   \\ [0.5ex] % inserts table 
+%heading
+\hline % inserts single horizontal line
+$P20$ & 1p, 2p, 5p, 4p, 10p, 4p, 5p, 4p 10p\\
+$P19$ & \\
+$P21$ & 3p\\
+$P18$ & 6p\\
+ $P22$ & \\
+$P17$ & \\
+$P23$ & \\
+$P16$ & 8p\\
+$P15$ & 5p\\
+$P24$ &  12p\\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+\label{table:multipulse} % is used to refer this table in the text
+\end{table} 
+
+The first secondary branch from $P19$ begins a snaking pattern after a rather messy start.  The snaking pattern involves 3 pulses of unequal size, and grows by first loosing fronts on the central pattern and then gaining fronts on all three patterns.
 
 \section{Future Work}
 
