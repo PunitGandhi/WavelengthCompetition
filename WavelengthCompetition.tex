@@ -438,33 +438,59 @@ Additionally, we have looked at the solutions formed at the next two bifurcation
 Another example of where a  multipulse state branch connects to a secondary periodic state branch is shown in Fig.~\ref{fig:bifurcationdiagram2}.  In this case, a five pulse state grows into the secondary periodic state upon each pulse doubling in size.  Note that this situation is slightly different in that both branches come from the same primary periodic branch.  It is also interesting to note that another five pulse branch appears below the periodic ( or ten pulse) branch, but does not connect as far as I've followed it. The secondary periodic branch with 10 periods shown in this figure contains a loop near $r=0.3$ just as the secondary periodic branch with 12 periods did in Fig.~\ref{fig:bifurcationdiagram1}.  
 \FIGbifurcationdiagramB
 
-There are several periodic solutions branching from the homogenous state between $P20$ and $P24$.  By looking at the secondary branches from these periodic states, we hope to see a pattern start to emerge with the location of multipulse states.  Note that we only track multipulse states in which all pulses are identical.  The table below lists in order, the periodic solutions along the diagram from in order of increasing forcing.  We would like to note that we can also interpret the periodic solution shown in Fig.~\ref{fig:doubleperiod1} as a twelve pulse state that just happens to exactly fill the simulation domain.  There are several solutions of this type that can be seen as a multipulse state with half the number of pulses as the periodic branch from which it emerges, or as a periodic solution with twice the wavelength of the branch from which it emerges.  Note that the table is still incomplete as on $P20$ has been completely scanned.  We have only looked at the first 5 branch points along most of the other periodic branches.
+There are several periodic solutions branching from the homogenous state between $P20$ and $P24$.  By looking at the secondary branches from these periodic states, we hope to see a pattern start to emerge with the location of multipulse states.  Note that we only track multipulse states in which all pulses are identical.  The table below lists in order, the periodic solutions along the diagram from in order of increasing forcing.  We would like to note that we can also interpret the periodic solution shown in Fig.~\ref{fig:doubleperiod1} as a twelve pulse state that just happens to exactly fill the simulation domain.  There are several solutions of this type that can be seen as a multipulse state with half the number of pulses as the periodic branch from which it emerges, or as a periodic solution with twice the wavelength of the branch from which it emerges.  
 
+%\begin{table}[ht]
+%\caption{Periodic branches that emerge from the homogenous branch} % title of Table
+%\centering % used for centering table
+%\begin{tabular}{c l} % centered columns (4 columns)
+%\hline\hline %inserts double horizontal lines
+%Primary Periodic Branch  & Secondary Multipulse branches   \\ [0.5ex] % inserts table 
+%%heading
+%\hline % inserts single horizontal line
+%$P20$ & 1p, 2p, 5p, 4p, 10p, 4p, 5p, 4p 10p\\
+%$P19$ & \\
+%$P21$ & 3p\\
+%$P18$ & 6p\\
+% $P22$ & \\
+%$P17$ & \\
+%$P23$ & \\
+%$P16$ & 8p\\
+%$P15$ & 5p\\
+%$P24$ &  12p\\ [1ex] % [1ex] adds vertical space
+%\hline %inserts single line
+%\end{tabular}
+%\label{table:multipulse} % is used to refer this table in the text
+%\end{table} 
 
 \begin{table}[ht]
-\caption{Periodic branches that emerge from the homogenous branch} % title of Table
+\caption{Cascade of secondary multipulse branches that bifurcate from periodic states.} % title of Table
 \centering % used for centering table
-\begin{tabular}{c l} % centered columns (4 columns)
+\begin{tabular}{c | c c c c c c c c c c} % centered columns (4 columns)
 \hline\hline %inserts double horizontal lines
-Primary Periodic Branch  & Secondary Multipulse branches   \\ [0.5ex] % inserts table 
+ Branch \# &\multicolumn{10}{c}{ Primary branch}\\
+\hline  %\\  %[0.5ex] % inserts table 
 %heading
+10 	&\textbf{10p} &		&		&		&2p?		&		&		&		&3p???		&	\\
+9	&      		&		&		&6p?	 	&		&		&		&16p??		&		&	\\
+8	&4p  		&		&		&	 	&2p?		&		&		&		&		&	\\
+7	&      		&		&3p		&2p?	 	&\textbf{11p}	&		&		&2p?		&15p??		&	\\
+6	&      		&		&		&\textbf{9p} 	&2p		&		&		&		&		&	\\
+5	&\textbf{5p}  	&		&\textbf{7p}	&2p	 	&		&		&		&4p		&		&	\\
+4	&\textbf{4p} 	&		&3p		&	 	&2p		&		&		&		&3p		&	\\
+3	&      		&		&		&\textbf{6p} 	&		&		&		&2p		&		&\textbf{12p}	\\
+2	&\textbf{2p} 	&		&		&	 	&2p		&		&		&		&5p		&	\\
+1	&\textbf{1p}  	&		&\textbf{3p}	&2p	 	&		&		&		&\textbf{8p}	&3p		&2p	\\
 \hline % inserts single horizontal line
-$P20$ & 1p, 2p, 5p, 4p, 10p, 4p, 5p, 4p 10p\\
-$P19$ & \\
-$P21$ & 3p\\
-$P18$ & 6p\\
- $P22$ & \\
-$P17$ & \\
-$P23$ & \\
-$P16$ & 8p\\
-$P15$ & 5p\\
-$P24$ &  12p\\ [1ex] % [1ex] adds vertical space
+ 	&$P20$	&$P19$	&$P21$	&$P18$	&$P22$	&$P17$	&$P23$	&$P16$	&$P15$	&$P24$ \\ [1ex] % [1ex] adds vertical spac
 \hline %inserts single line
 \end{tabular}
 \label{table:multipulse} % is used to refer this table in the text
 \end{table} 
 
-The first secondary branch from $P19$ begins a snaking pattern after a rather messy start.  The snaking pattern involves 3 pulses of unequal size, and grows by first loosing fronts on the central pattern and then gaining fronts on all three patterns.
+Following the homogenous solution branch, we see a series of periodic states bifurcate as the forcing increases.  Each of these branches is labelled by the number of wavelengths that fit into the domain, and the sequence is shown in Table \ref{table:multipulse}.  Secondary bifurcations occur along each of these periodic branches as they are followed away from the homogenous solution.  Studying the solutions along these secondary branches shows a cascade of multipulse solutions that have a very regular pattern.  The first periodic branch, $P20$ has  one-pulse solution branching off of the first bifurcation point, and then a two pulse solution off of the second one.  The pattern continues as you continue up the branch, except that the nth bifurcation produces an n-pulse state only if n is a factor of the number of periods of  on the branch (namely 20).  The next periodic branch begins with a two-pulse state at the first bifurcation point and increases as one follows the periodic branch up.  The pattern continues so that the next branch starts with a three-pulse state and increases.  Again the multipulse states only exist as multipulse states if the number of pulses that should be there is a factor of the period.  There are other, more complicated multipulse states that appear when the number of pulses that should appear a a particular bifurcation point has greatest common factor with the number of periods on the homogeneous branch.  In this case, the number of pulses on the branch will be the greatest common factor and this can be understood as effectively simulating only a fraction of the domain.  For example, an 8 pulse state should appear at the 8th bifurcation along $P20$, but this does not happen since 8 is not a factor of 20.  Instead, a 4-pulse state appears, which could be considered an 8 pulse state on a 40 period domain.  So, in effect, we've only simulated half of the domain resulting in only half of the expected number of pulses.  These multipulse states are indicated on the table in not-bold font.
+
+Another suprising result is seen in the first secondary branch from $P19$ - a snaking pattern  begins  after a messy start along the branch.  The snaking pattern involves 3 pulses of unequal size, and grows by first loosing fronts on the central pattern and then gaining fronts on all three patterns.
 
 \section{Future Work}
 
