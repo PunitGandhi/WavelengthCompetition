@@ -131,6 +131,27 @@
 \end{figure}
 }
 
+\newcommand{\FIGsnakingB}{
+\begin{figure}[h]
+  \begin{center}
+    
+      \subfloat[1]{\includegraphics[width=60mm]{sb19a1.png}} \quad
+      \subfloat[2]{\includegraphics[width=60mm]{sb19a2.png}}\\
+      \subfloat[3]{\includegraphics[width=60mm]{sb19a3.png}} \quad
+      \subfloat[4]{\includegraphics[width=60mm]{sb19a4.png}} 
+      
+    \caption{Localized solutions along snaking branch that bifurcates from $P19$.}
+    \label{fig:snaking19a}
+  \end{center}
+\end{figure}
+}
+\newcommand{\FIGbifurcationdiagramC}{
+\begin{figure}[h]\center
+\includegraphics[width=120mm]{sb19a.png}
+\caption{\label{fig:bifurcationdiagram19a} A Bifurcation diagram for the case that $q=1$ and $\delta=0$, showing the first snaking branch emerging from the $P19$ periodic state.}
+\end{figure}
+}
+
 
 \pagestyle{fancy}
 \begin{document}
@@ -440,28 +461,7 @@ Another example of where a  multipulse state branch connects to a secondary peri
 
 There are several periodic solutions branching from the homogenous state between $P20$ and $P24$.  By looking at the secondary branches from these periodic states, we hope to see a pattern start to emerge with the location of multipulse states.  Note that we only track multipulse states in which all pulses are identical.  The table below lists in order, the periodic solutions along the diagram from in order of increasing forcing.  We would like to note that we can also interpret the periodic solution shown in Fig.~\ref{fig:doubleperiod1} as a twelve pulse state that just happens to exactly fill the simulation domain.  There are several solutions of this type that can be seen as a multipulse state with half the number of pulses as the periodic branch from which it emerges, or as a periodic solution with twice the wavelength of the branch from which it emerges.  
 
-%\begin{table}[ht]
-%\caption{Periodic branches that emerge from the homogenous branch} % title of Table
-%\centering % used for centering table
-%\begin{tabular}{c l} % centered columns (4 columns)
-%\hline\hline %inserts double horizontal lines
-%Primary Periodic Branch  & Secondary Multipulse branches   \\ [0.5ex] % inserts table 
-%%heading
-%\hline % inserts single horizontal line
-%$P20$ & 1p, 2p, 5p, 4p, 10p, 4p, 5p, 4p 10p\\
-%$P19$ & \\
-%$P21$ & 3p\\
-%$P18$ & 6p\\
-% $P22$ & \\
-%$P17$ & \\
-%$P23$ & \\
-%$P16$ & 8p\\
-%$P15$ & 5p\\
-%$P24$ &  12p\\ [1ex] % [1ex] adds vertical space
-%\hline %inserts single line
-%\end{tabular}
-%\label{table:multipulse} % is used to refer this table in the text
-%\end{table} 
+
 
 \begin{table}[ht]
 \caption{Cascade of secondary multipulse branches that bifurcate from periodic states.} % title of Table
@@ -472,11 +472,11 @@ There are several periodic solutions branching from the homogenous state between
 \hline  %\\  %[0.5ex] % inserts table 
 %heading
 10 	&\textbf{10p} &		&		&		&2p?		&		&		&		&3p???		&	\\
-9	&      		&		&		&6p?	 	&		&		&		&16p??		&		&	\\
+9	&      		&		&		&6p?	 	&		&		&		&16p??		&		&6p?	\\
 8	&4p  		&		&		&	 	&2p?		&		&		&		&		&	\\
-7	&      		&		&3p		&2p?	 	&\textbf{11p}	&		&		&2p?		&15p??		&	\\
-6	&      		&		&		&\textbf{9p} 	&2p		&		&		&		&		&	\\
-5	&\textbf{5p}  	&		&\textbf{7p}	&2p	 	&		&		&		&4p		&		&	\\
+7	&      		&		&3p		&2p?	 	&\textbf{11p}	&		&		&2p?		&15p??		&8p?	\\
+6	&      		&		&		&\textbf{9p} 	&2p		&		&		&		&		&3p?	\\
+5	&\textbf{5p}  	&		&\textbf{7p}	&2p	 	&		&		&		&4p		&		&2p?	\\
 4	&\textbf{4p} 	&		&3p		&	 	&2p		&		&		&		&3p		&	\\
 3	&      		&		&		&\textbf{6p} 	&		&		&		&2p		&		&\textbf{12p}	\\
 2	&\textbf{2p} 	&		&		&	 	&2p		&		&		&		&5p		&	\\
@@ -490,13 +490,26 @@ There are several periodic solutions branching from the homogenous state between
 
 Following the homogenous solution branch, we see a series of periodic states bifurcate as the forcing increases.  Each of these branches is labelled by the number of wavelengths that fit into the domain, and the sequence is shown in Table \ref{table:multipulse}.  Secondary bifurcations occur along each of these periodic branches as they are followed away from the homogenous solution.  Studying the solutions along these secondary branches shows a cascade of multipulse solutions that have a very regular pattern.  The first periodic branch, $P20$ has  one-pulse solution branching off of the first bifurcation point, and then a two pulse solution off of the second one.  The pattern continues as you continue up the branch, except that the nth bifurcation produces an n-pulse state only if n is a factor of the number of periods of  on the branch (namely 20).  The next periodic branch begins with a two-pulse state at the first bifurcation point and increases as one follows the periodic branch up.  The pattern continues so that the next branch starts with a three-pulse state and increases.  Again the multipulse states only exist as multipulse states if the number of pulses that should be there is a factor of the period.  There are other, more complicated multipulse states that appear when the number of pulses that should appear a a particular bifurcation point has greatest common factor with the number of periods on the homogeneous branch.  In this case, the number of pulses on the branch will be the greatest common factor and this can be understood as effectively simulating only a fraction of the domain.  For example, an 8 pulse state should appear at the 8th bifurcation along $P20$, but this does not happen since 8 is not a factor of 20.  Instead, a 4-pulse state appears, which could be considered an 8 pulse state on a 40 period domain.  So, in effect, we've only simulated half of the domain resulting in only half of the expected number of pulses.  These multipulse states are indicated on the table in not-bold font.
 
-Another suprising result is seen in the first secondary branch from $P19$ - a snaking pattern  begins  after a messy start along the branch.  The snaking pattern involves 3 pulses of unequal size, and grows by first loosing fronts on the central pattern and then gaining fronts on all three patterns.
+Another suprising result is seen in the first secondary branch from $P19$ - a snaking pattern  begins  after a messy start along the branch.  The snaking pattern involves 3 pulses of unequal size, and grows by first loosing fronts on the central pattern and then gaining fronts on all three patterns. The pattern eventually fills the domain, except that defects remains.  The branch becomes messy again at this point as the defects shift around and change slightly.  The snaking bifurcation diagram is shown in Fig.~\ref{fig:bifurcationdiagram19a}, and some sample solutions along the snaking region are shown in Fig.~\ref{fig:snaking19a}.
+\FIGbifurcationdiagramC
+\FIGsnakingB
+
 
 \section{Future Work}
 
 
 \bibliography{WavelengthCompetitonBib}
 \end{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
 
 \begin{align}
 0=& \left[2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right] +\frac{\sin2 \pi  q }{2\pi q} \left[b B_{11}^2-9q^4 (4-q^2)^2 B_{22} +c.c.\right]\nonumber \\
@@ -533,7 +546,28 @@ and
 respectively
 
 
-
+\begin{table}[ht]
+\caption{Periodic branches that emerge from the homogenous branch} % title of Table
+\centering % used for centering table
+\begin{tabular}{c l} % centered columns (4 columns)
+\hline\hline %inserts double horizontal lines
+Primary Periodic Branch  & Secondary Multipulse branches   \\ [0.5ex] % inserts table 
+%heading
+\hline % inserts single horizontal line
+$P20$ & 1p, 2p, 5p, 4p, 10p, 4p, 5p, 4p 10p\\
+$P19$ & \\
+$P21$ & 3p\\
+$P18$ & 6p\\
+ $P22$ & \\
+$P17$ & \\
+$P23$ & \\
+$P16$ & 8p\\
+$P15$ & 5p\\
+$P24$ &  12p\\ [1ex] % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+\label{table:multipulse} % is used to refer this table in the text
+\end{table} 
 
 
 
