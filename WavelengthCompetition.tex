@@ -152,6 +152,66 @@
 \end{figure}
 }
 
+\newcommand{\FIGbifurcationdiagramD}{
+\begin{figure}[h]
+  \begin{center}
+    \mbox{
+      \subfloat[$P20$ branch with first secondary branch]{\includegraphics[width=60mm]{BifurcationDiagram_q12pb20.png}} \quad
+      \subfloat[$P24$ branch with first secondary branch]{\includegraphics[width=60mm]{BifurcationDiagram_q12pb24.png}} 
+      }
+    \caption{Bifurcation diagrams showing competing periodic solutions and secondary snaking branches for each.}
+    \label{fig:bifurcationdiagramq12}
+  \end{center}
+\end{figure}
+}
+
+\newcommand{\FIGsnakingC}{
+\begin{figure}[h]
+  \begin{center}
+    
+      \subfloat[1]{\includegraphics[width=40mm]{q12sb20aL_sol1.png}} \quad
+      \subfloat[2]{\includegraphics[width=40mm]{q12sb20aL_sol2.png}}\quad
+      \subfloat[3]{\includegraphics[width=40mm]{q12sb20aL_sol3.png}}
+    
+      
+    \caption{Localized solutions along snaking branch that bifurcates from $P20$ and terminates on the left side of Fig.~\ref{fig:bifurcationdiagramq12}.}
+    \label{fig:snakingq12p20aL}
+  \end{center}
+\end{figure}
+}
+
+\newcommand{\FIGsnakingD}{
+\begin{figure}[h]
+  \begin{center}
+    
+      \subfloat[1]{\includegraphics[width=40mm]{q12sb20aR_sol1.png}} \quad
+      \subfloat[2]{\includegraphics[width=40mm]{q12sb20aR_sol2.png}}\quad
+      \subfloat[3]{\includegraphics[width=40mm]{q12sb20aR_sol3.png}}\\
+      \subfloat[4]{\includegraphics[width=40mm]{q12sb20aR_sol4.png}} \quad
+      \subfloat[5]{\includegraphics[width=40mm]{q12sb20aR_sol5.png}}\quad
+      \subfloat[6]{\includegraphics[width=40mm]{q12sb20aR_sol6.png}}
+      
+    \caption{Localized solutions along snaking branch that bifurcates from $P20$ and terminates on the right side of Fig.~\ref{fig:bifurcationdiagramq12}.}
+    \label{fig:snakingq12p20aR}
+  \end{center}
+\end{figure}
+}
+
+\newcommand{\FIGsnakingE}{
+\begin{figure}[h]
+  \begin{center}
+    
+      \subfloat[1]{\includegraphics[width=60mm]{q12sb24a_sol1.png}} \quad
+      \subfloat[2]{\includegraphics[width=60mm]{q12sb24a_sol2.png}}\\
+      \subfloat[3]{\includegraphics[width=60mm]{q12sb24a_sol3.png}}\quad
+      \subfloat[4]{\includegraphics[width=60mm]{q12sb24a_sol4.png}} 
+      
+    \caption{Localized solutions along snaking branch that bifurcates from $P24$.}
+    \label{fig:snakingq12p24a}
+  \end{center}
+\end{figure}
+}
+
 
 \pagestyle{fancy}
 \begin{document}
@@ -552,9 +612,16 @@ Another surprising result is seen in the first secondary branch from $P19$ - a s
 \subsection{A first attempt at the two wavelength case}
 We now move onto considering the case when there are two competing patterned states of different wavelengths.  We will still have a domain size such that the first natural wavelength has 20 periods, but will choose $q$ such that the second wavelength has 24 periods.  Ideally we would have liked for both wavelengths to go unstable at the same value of $r$, i.e. set $\delta=0$.  AUTO does not, for some reason, detect the $r=0$ bifurcation along the homogeneous branch in this case.  It might possibly that the function it uses is the product of the eigenvalues, and if two go unstable the product remains positive.  \todo[inline]{I still need to figure out how to analyze the case when $\delta=0$ with AUTO.  I am trying to use a feature that allows me to load a solution calculated from when $\delta=10^{-5}$, but then change the value to $\delta=0$.  I can't make it work properly yet but am working on it.}  Regardless, it is interesting to consider the case when one wavelength becomes unstable at a slightly smaller forcing than the other.  We start with the case when the wavelengths are close together and since we had seen a  between the $P20$ and $P24$ branches of the one wavelength case, we decided that $q_*=1.2$ would be a reasonable first attempt.   \todo[inline]{I used the value $q=1.20001$ which I got using NSolve in Mathematica.  I don't think it was calculated to machine precision, and I'm not sure if this will make a difference or not.  I  should calculate $q$ with more precision just in case by either figuring out how to do this with Mathematica or writing a solver to do it for me.  I think an iterative solver might be the best approach in the latter case.}
 
-In this case, we two periodic branches bifurcating from near $r=0$ as expected.  The first one has 20 periods and bifurcates basically at r=0 while the second has 24 periods and bifurcates at around $r=10^-6$.  We started out with the nonlinearity parameter at $b=1.8$ as before, but found that the periodic branches did not go as subcritical as before.  We decided increase the nonlinearity in order to push the saddle-node bifurcation point on the periodic branches to lower values of $r$ so that there would be a comparable region of bistability in this case as there was in the $q=1$ case.  With this as motivation, we have set $b=2.0$ for the simulations in this subsection.  \todo[inline]{I think $b=2.1$ might actually be slightly closer to the other case, and I should redo these diagrams with this value}       
+In this case, we two periodic branches bifurcating from near $r=0$ as expected.  The first one has 20 periods and bifurcates basically at r=0 while the second has 24 periods and bifurcates at around $r=10^{-6}$.  We started out with the nonlinearity parameter at $b=1.8$ as before, but found that the periodic branches did not go as subcritical as before.  We decided increase the nonlinearity in order to push the saddle-node bifurcation point on the periodic branches to lower values of $r$ so that there would be a comparable region of bistability in this case as there was in the $q=1$ case.  With this as motivation, we have set $b=2.0$ for the simulations in this subsection.  \todo[inline]{I think $b=2.1$ might actually be slightly closer to the other case, and I should redo these diagrams with this value}       
 
-The first secondary bifurcation point along the $P20$ periodic branch produces a four pulse state that eventually grows to a periodic state with 16 periods. The branches 
+The first secondary bifurcation point along the $P20$ periodic branch produces  four pulse states that eventually grow to a periodic state with either 8 or 16 periods, the bifurcation diagram shown in Fig.~\ref{fig:bifurcationdiagramq12}. 
+\FIGbifurcationdiagramD
+The branch terminating on the left of the diagram corresponds to solutions with pulses that have a minimum at the center (shown in Fig.~\ref{fig:snakingq12p20aL}) and it terminates at a complicated periodic solution with 8 periods on the domain.
+\FIGsnakingC
+ The branch terminating on the right of the diagram, on the other hand, corresponds to solutions with a maximum at the center of each pulse (shown in Fig.~\ref{fig:snakingq12p20aR}) and terminates in a more simple periodic solution with 16 periods on the domain.
+\FIGsnakingD
+The first secondary bifurcation along the $P24$ branch produces a 3 pulse state that snakes until the pulses fill the entire domain.  The branch does not, however, seem to terminate at a periodic solution.  The Bifurcation diagram is shown in Fig~\ref{fig:bifurcationdiagramq12} and solutions along the branch are shown in Fig.~\ref{fig:snakingq12p24a}
+\FIGsnakingE
 
 
 \section{Future Work}
