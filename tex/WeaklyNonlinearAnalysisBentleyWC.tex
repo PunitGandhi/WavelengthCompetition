@@ -1,0 +1,70 @@
+\documentclass[../main/WavelengthCompetition.tex]{subfiles} 
+\begin{document}
+
+
+
+\section{Weakly Nonlinear Analysis REDO-Bently}
+In this section, we consider the scaling analogous to what Bentley did in which the long spatial scale is defined by $x=\epsilon^{1/2}X$ instead of $x=\epsilon X$ as in the previous section.  All other scalings are identical to the previous section.
+The linear part of the modified Swift-Hohenberg equation (Eq.~\ref{eq:SHm}), 
+\beqn
+L= r-\left(1+\partial_{x}^2\right)^2 \left[\left(q^2+\partial_{x}^2\right)^2+\delta \right],
+\eeqn
+can be expanded as $L=L_0+\epsilon^{1/2} L_{1/2}+\epsilon L_1+\epsilon^{3/2} L_{3/2}+\epsilon^2 L_2+...$ where:
+\begin{subequations}
+\begin{align}
+L_0 =& -\left(1+\partial_x^2\right)^2 \left(q^2+\partial_x^2\right)^2 \\
+L_{1/2} =& -4\left(1+\partial_x^2\right)  \left(q^2+\partial_x^2\right) \left(q^2+1+2 \partial_x^2\right)\partial_x\partial_X \\
+L_1 =&- 2 \left[14 \partial_x^6+15  \left(q^2+1\right)\partial_x^4+3 \left(q^4+4 q^2+1\right) \partial_x^2+q^2\left(q^2+1\right)\right] \partial_X^2\\  
+L_{3/2} =& -4   \left[ 14 \partial_x^4+10  \left(q^2+1\right)\partial_x^2+q^4+ 4 q^2+1\right]\partial_x \partial_X^3 \\
+L_2 =& -\left[ 70 \partial_x^4+30\left(q^2+1\right) \partial_x^2 +q^4 +4 q^2+1\right]\partial_X^4-\delta\left(1 +\partial_x^2\right)+\mu-\partial_T  \\
+L_{5/2} =& -4 \left[ \left(3(q^2+1)+14 \partial_x^2\right)\partial_X^4+\delta(1 +\partial_x^2) \right] \partial_x \partial_X  \\
+L_{3} =& -2 \left[ \left(q^2+1+14 \partial_x^2\right)\partial_X^4 +\delta(1 +3 \partial_x^2) \right] \partial_X^2 
+\end{align}
+\end{subequations}
+
+\subsection{The quadratic-cubic nonlinearity}
+We will first consider the case when $N=N_{23}$ so that the modified Swift-Hohenberg equation can be written as $L[u]+N_{23}[u]=0$.  We will assume that the solution can be written as an asymptotic series with the leading term of order $\epsilon$, namely $u=\epsilon u_1 + \epsilon^{3/2} u_{3/2} +\epsilon^2 u_2+...$ 
+
+We can then write out the resulting equation at each order of $\epsilon$ by matching terms at the proper order.
+\begin{subequations}
+\begin{align}
+\mathcal{O}(\epsilon): \:  &-L_0 u_1 =0
+\label{eq:msh23o1b} \\
+\mathcal{O}(\epsilon^{3/2}): \: &-L_0 u_{3/2} = L_{1/2} u_1 
+\label{eq:msh23o15b} \\
+\mathcal{O}(\epsilon^2): \:  &-L_0 u_2 = L_{1/2} u_{3/2} +L_1 u_1 +b u_1^2
+\label{eq:msh23o2b}\\
+\mathcal{O}(\epsilon^{5/2}): \:  &-L_0 u_{5/2} = L_{1/2} u_{2} +L_1 u_{3/2}+ L_{3/2} u_1 +2b u_1 u_{3/2}
+\label{eq:msh23o25b}\\
+\mathcal{O}(\epsilon^{3}): \:  &-L_0 u_{3} = L_{1/2} u_{5/2} +L_1 u_{2}+ L_{3/2} u_{3/2}+L_2 u_1   +b u_{3/2}^2+2b u_1 u_2 -u_1^3
+\label{eq:msh23o25b}
+\end{align}
+\end{subequations}
+
+The solution to the $\mathcal{O}(\epsilon)$ equation can be expressed in terms of the yet to be determined complex amplitudes $A_{11}, B_{11}$ as:
+\beqn
+u_1(x,X,T)=A_{11}(X,T)e^{i x} +B_{11}(X,T)e^{i q x} +c.c.
+\label{eq:sol23o1}
+\eeqn
+Furthermore, since $L_{1/2} u_1=0$, we can absorb $u_{3/2}$ into $u_1$ as a correction. 
+
+For the next order in $\epsilon$,$\mathcal(\epsilon^2)$ , we see that $L_{1/2} u_{3/2}$ vanishes, and will assume the following form for $u_2$:
+\beqa
+u_2(x,X,T)&=&C_{20}(X,T)  \\
+&+ &\left[ A_{21}(X,T)e^{i x}+A_{22}(X,T)e^{2 i x} +B_{21}(X,T)e^{i q x} + B_{22}(X,T)e^{2 i q x} +c.c.\right]\nonumber
+\label{eq:sol23o2}
+\eeqa
+
+The resulting condition becomes:
+\begin{align}
+	0=& \left(2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right) \nonumber \\
+&+\biggl[ 4(q^2-1)^2\left( A_{11}''e^{ix}+q^2 B_{11}''e^{iqx} \right)\nonumber \\
+ &+\left(b A_{11}^2-9(q^2-4)^2A_{22}\right)e^{2 i x} +\left(b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right)e^{2 i q x} \nonumber \\
+&+2b B_{11}\left(A_{11}e^{i(q+1)x}+\bar{A}_{11}e^{i(q-1)x} \right)+ c.c.\biggr]
+\label{eq:solvability2}
+\end{align}
+In the case that $q\neq 1$, we see that this requires the leading order amplitudes to satisfy $A_{11}''=B_{11}''=0$, which implies that they must be constants if we assume a finite value at $\pm \infty$ for the boundary conditions.  This choice of scaling works well when $q=1$ as is demonstrated in Bentley's thesis, but does not seem to produce useful results in the more general case. \todo[inline]{Can I modify this scaling slightly or add an additional parameter that appears at this order to cancel out the problematic terms here?  Would an additional time or length scale help, and if so, what would it represent physically?  }
+
+
+
+\end{document}

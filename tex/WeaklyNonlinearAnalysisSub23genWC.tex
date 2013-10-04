@@ -1,0 +1,161 @@
+\documentclass[../main/WavelengthCompetition.tex]{subfiles} 
+\begin{document}
+
+
+\subsection{The quadratic-cubic nonlinearity}
+We will first consider the case when $N=N_{23}$ so that the modified Swift-Hohenberg equation can be written as $L[u]-N_{23}[u]=0$.  We will assume that the solution can be written as an asymptotic series with the leading term of order $\epsilon$, namely $u=\epsilon u_1 + \epsilon^2 u_2 +\epsilon^2 u_3+...$ 
+
+We can then write out the resulting equation at each order of $\epsilon$ by matching terms at the proper order.
+\begin{subequations}
+\begin{align}
+\mathcal{O}(\epsilon): \:  &-L_0 u_1 =0
+\label{eq:msh23o1} \\
+\mathcal{O}(\epsilon^2): \: &-L_0 u_2 = L_1 u_1 +b u_1^2
+\label{eq:msh23o2} \\
+\mathcal{O}(\epsilon^3): \:  &-L_0 u_3 = L_1 u_2 +L_2 u_1 + 2b u_1 u_2-u_1^3
+\label{eq:msh23o3}
+\end{align}
+\end{subequations}
+The solution to the $\mathcal{O}(\epsilon)$ equation can be expressed in terms of the yet to be determined complex amplitudes $A_1, B_1$ as:
+\beqn
+u_1(x,X,T)=A_{11}(X,T)e^{i x} +B_{11}(X,T)e^{i q x} +c.c.
+\label{eq:sol23o1}
+\eeqn
+where $c.c.$ denotes the complex conjugate of the expression written.  The  $\mathcal{O}(\epsilon^2)$ equation has solutions that can be written in the form:
+\beqa
+u_2(x,X,T)&=&C_{20}(X,T)  \\
+&+ &\left[ A_{21}(X,T)e^{i x}+A_{22}(X,T)e^{2 i x} +B_{21}(X,T)e^{i q x} + B_{22}(X,T)e^{2 i q x} +c.c.\right]\nonumber
+\label{eq:sol23o2}
+\eeqa
+Noting that $L_1 u_1=0$, we see that substituting Eqs.~\ref{eq:sol23o1} and ~\ref{eq:sol23o2} into Eq.~\ref{eq:msh23o2} results in the condition
+\begin{align}
+	0=& \left(2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right) \nonumber \\
+ &+\biggl[ \left(b A_{11}^2-9(q^2-4)^2A_{22}\right)e^{2 i x} +\left(b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right)e^{2 i q x} \nonumber \\
+&+2b B_{11}\left(A_{11}e^{i(q+1)x}+\bar{A}_{11}e^{i(q-1)x} \right)+ c.c.\biggr]
+\label{eq:solvability2}
+\end{align}
+In order to proceed with the analysis, we will eventually need to make some assumptions about the choice of $q$.  We will assume that $q=m/n$ is a rational number where $m$ and $n$ are relatively prime integers. In this case, we want to perform our Fourier analysis on a domain of size $2\pi n$.
+We can make use of orthagonality conditions to derive relations between the various amplitudes.  Applying the integral operater $\tfrac{1}{2\pi n}\int_{-n\pi }^{ n\pi} \; \text{d}x$ to Eq.~\ref{eq:solvability2} gives:
+\beqn
+ \left[2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right] +\delta_{\text{d}}(q-1) \left[2  b B_{11} \bar{A}_{11}+2  b\bar{B}_{11} A_{11} \right]=0
+% \left[2 b (|A_{11}|^2+|B_{11}|^2)-q^4 C_{20} \right] +\frac{ \sin(m-n)\pi}{(m-n)\pi} \left[2  b B_{11} \bar{A}_{11}+2  b\bar{B}_{11} A_{11} \right]=0
+\eeqn
+where $\delta_{\text{d}}$ is the Dirac delta function.
+Assuming that $q\neq 1$, this gives a condition that 
+\beqn
+C_{20}=\frac{2 b}{q^4} (|A_{11}|^2+|B_{11}|^2)
+\eeqn
+and if $q=1$, we get
+\beqn
+C_{20}=\frac{2 b}{q^4} (|A_{11}+B_{11}|^2)
+\eeqn
+
+
+Applying $\tfrac{1}{2\pi n }\int_{- n\pi}^{n\pi}  \; \text{d}x\; e^{-ix}$ and $\tfrac{1}{2\pi n }\int_{- n\pi}^{n\pi}  \; \text{d}x\; e^{-i q x}$ give:
+\beqn
+\delta_{\text{d}}(q-1/2) \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right] +\delta_{\text{d}}(q-2) \left[2bB_{11}\bar{A}_{11} \right]=0
+%\frac{\sin(2m-n) \pi  }{(2m-n)\pi } \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right] +\frac{ \sin (m-2n)\pi }{(m-2n)\pi} \left[2bB_{11}\bar{A}_{11} \right]=0
+\eeqn
+and
+\beqn
+\delta_{\text{d}}(q-1/2)\left[2b\bar{B}_{11} A_{11} \right]  +\delta_{\text{d}}(q-2) \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]=0
+%\frac{\sin(2m-n) \pi  }{(2m-n)\pi }\left[2b\bar{B}_{11} A_{11} \right]  +\frac{ \sin (m-2n)\pi }{(m-2n)\pi} \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]=0
+\eeqn
+respectively.  These equations are trivially solved, unless $q=2$ or $q=1/2$.  
+
+Applying $\tfrac{1}{2\pi n}\int_{-n \pi}^{ n\pi}  \; \text{d}x\; e^{2i x}$  and $\tfrac{q}{2\pi n}\int_{-n\pi}^{n\pi}  \; \text{d}x\; e^{2iqx}$ give:
+\begin{align}
+0=&\left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]\nonumber \\
+&+\delta_{\text{d}}(q-1) \left[2bB_{11}A_{11}+b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]+\delta_{\text{d}}(q-3) \left[2bB_{11}\bar{A}_{11}\right]
+%\left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]+\frac{ \sin(m-n)\pi }{(m-n)\pi} \left[2bB_{11}A_{11}\right]
+%+\frac{\sin2(m-n) \pi  }{2(m-n)\pi} \left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]\nonumber \\
+%+\frac{ \sin(m-3n)\pi }{(m-3n)\pi} \left[2bB_{11}\bar{A}_{11}\right]=0
+\end{align}
+and
+\begin{align}
+0=&\left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]\nonumber \\
+&+\delta_{\text{d}}(q-1) \left[2bB_{11}A_{11}+b A_{11}^2-9 (q^2-4)^2 A_{22}\right]+\delta_{\text{d}}(q-1/3) \left[2b\bar{B}_{11}A_{11}\right]
+%\left[b B_{11}^2-9q^4 (1-4q^2)^2 B_{22}\right]+\frac{ \sin(m-n)\pi }{(m-n)\pi} \left[2bB_{11}A_{11}\right]
+%+\frac{\sin2(m-n) \pi  }{2(m-n)\pi q} \left[b A_{11}^2-9 (q^2-4)^2 A_{22}\right]\nonumber \\
+%+\frac{ \sin(3m-n)\pi }{(3m-n)\pi} \left[2b\bar{B}_{11}A_{11}\right]=0
+\end{align}
+respectively.  In the case that $q=1$, we again get the solution consistent with combining the two amplitudes into a single variable.  The $q=3,1/3$ cases give a coupling between the two amplitudes in this equation, and all other cases give:
+\beqn
+A_{22}=\frac{bA_{11}^2}{9 (q^2-4)^2} \qquad B_{22}=\frac{bB_{11}^2}{9q^4 (1-4q^2)^2}
+\eeqn
+
+Now, going on to the $\mathcal{O}(\epsilon^3)$, we can write down the solution in the form:
+\beqa
+u_3(x,X,T)=C_{30}(X,T)  + \biggl[ &A&_{31}(X,T)e^{i x}+A_{32}(X,T)e^{2 i x}+A_{33}(X,T)e^{3 i x}\\ 
++&B&_{31}(X,T)e^{i q x} + B_{32}(X,T)e^{2 i q x}+B_{33}(X,T)e^{3 i q x} +c.c.\biggr]\nonumber
+\label{eq:sol23o3}
+\eeqa
+
+In order to get the solvability conditions that determine the leading order amplitudes, we need only look at the following two  projections of this equation:   $\tfrac{1}{2\pi n}\int_{-n\pi}^{n\pi}  \; \text{d}x\; e^{-ix}$ and $\tfrac{q}{2\pi n}\int_{- n\pi}^{n \pi}  \; \text{d}x\; e^{-iqx}$.  The conditions will come from forcing these projections that result in resonance terms to vanish.  Leaving $q$ as an arbitrary rational number makes the calculation more difficult because we must now calculate more terms of the equation as they may have a component along these directions.  We will calculate each term in the equation, and then look at the final equations resulting from the projections.  An alternative way to look at this problem is to make use of the Fredhom alternative theorem, which will result in basically the same calculation.
+
+We first not that $L_0 u_3$ and $L_1 u_2$ cannot have a component along the directions we are looking for as both directions lie completely in the kernels of these operators.  We must therefore compute $L_2 u_1$ and the two nonlinear terms in order to find the solvability condition.
+\begin{align}
+L_2 u_1=&\left[4\left(q^2-1\right)^2 \partial_X^2 A_{11}+\mu A_{11}-\partial_T A_{11}\right]e^{i x}\nonumber \\
++&\left[4q^2\left(q^2-1\right)^2 \partial_X^2 B_{11}+\left(\mu-\delta (q^2-1)^2\right) B_{11}-\partial_T B_{11}\right]e^{i q x} \nonumber\\
++&c.c
+\end{align}
+\begin{align}
+2 b u_1 u_2=2b\biggr[&A_{11}A_{22} e^{3ix}+A_{11}A_{21} e^{2ix}+\left(A_{11}C_{20}+A_{22}\bar{A}_{11}\right) e^{ix}+A_{11}\bar{A}_{21}\nonumber \\+&B_{11}B_{22} e^{3iqx}+B_{11}B_{21} e^{2iqx}+\left(B_{11}C_{20}+B_{22}\bar{B}_{11}\right) e^{iqx}+B_{11}\bar{B}_{21}\nonumber \\
++&\left(A_{11}B_{21}+B_{11}A_{21}\right) e^{i(q+1)x}+\left(\bar{A}_{11}B_{21}+B_{11}\bar{A}_{21}\right) e^{i(q-1)x}\nonumber \\
++&A_{22}B_{11} e^{i(q+2)x}+\bar{A}_{22}B_{11} e^{i(q-2)x}+A_{11}B_{22} e^{i(2q+1)x}+\bar{A}_{11}B_{22} e^{i(2q-1)x}\nonumber \\
++&c.c.\biggr]
+\end{align}
+\begin{align}
+-u_1^3=-\biggl[&A_{11}^3 e^{3ix}+\left(3|A_{11}|^2A_{11}+6|B_{11}|^2A_{11}\right) e^{ix}\nonumber\\
++&B_{11}^3 e^{3iqx}+\left(3|B_{11}|^2B_{11}+6|A_{11}|^2B_{11}\right) e^{iqx}\nonumber\\
++&3A_{11}^2 B_{11} e^{i(q+2)x}+3\bar{A}_{11}^2 B_{11} e^{i(q-2)x}+3A_{11}B_{11}^2  e^{i(2q+1)x}+3\bar{A}_{11}B_{11}^2  e^{i(2q-1)x}\nonumber\\
++&c.c.\biggr]
+\end{align}
+The final solvability conditions become:
+\begin{align}
+\left[\left(4\left(q^2-1\right)^2 \partial_X^2 A_{11}+\mu A_{11}-\partial_T A_{11}\right)+2b\left(A_{11}C_{20}+A_{22}\bar{A}_{11}\right)-\left(3|A_{11}|^2A_{11}+6|B_{11}|^2A_{11}\right)\right]\nonumber\\
++\delta_{\text{d}}(q-1)\left[\left(4q^2\left(q^2-1\right)^2 \partial_X^2 B_{11}+\left(\mu-\delta (q^2-1)^2\right) B_{11}-\partial_T B_{11}\right)+2b\left(B_{11}C_{20}+B_{22}\bar{B}_{11}\right) -\left(3|B_{11}|^2B_{11}+6|A_{11}|^2B_{11}\right)\right]
+\end{align}
+
+If $q\neq 1,2,1/2,3, 1/3$, then the equations become
+\begin{align}
+\dot{A}&=\mu A+a  A''-\alpha|A|^2A-\gamma|B|^2 A\\
+\dot{B}&=\left(\mu-\frac{\delta a}{4}\right) B+q^2 a  B''-\beta|B|^2B-\gamma|A|^2 B
+\end{align}
+where $a=4(q^2-1)^2$, $\alpha=3-\tfrac{4 b^2}{q^4}-\tfrac{2 b^2}{9(q^2-4)^2}$, $\beta=3-\tfrac{4 b^2}{q^4}-\tfrac{2 b^2}{9q^2(1-4q^2)^2}$, and $\gamma=6-\frac{4 b^2}{q^4}$. We see from this equation that in the $q=1$ case the spatial derivative term vanishes, and this would have been prevented if we used the spatial scaling of Bentley.
+
+We can gain some insight into these coupled equations by rewriting the amplitudes in terms of polar coordinates as $A=r e^{i\theta}$ and $b= s e^{i\phi}$.  Using these variables, the two complex equations can be written as the following 4 real equations:
+\begin{subequations}
+\begin{align}
+\dot{r}=&\mu r + a(r'' - r\theta'^2) -\alpha r^3-\gamma s^2 r
+\label{eq:rpolar} \\
+r^2\dot{\theta}=&a(r^2\theta')'
+\label{eq:thpolar}\\
+\dot{s}=&(\mu-\delta a/4) s + q^2 a(s'' - s\phi'^2) -\beta s^3-\gamma r^2 s
+\label{eq:spolar}\\
+s^2\dot{\phi}=&q^2 a (s^2\phi')'
+\label{eq:phpolar}
+\end{align}
+\end{subequations}
+If we focus on time-independent solutions, we can now use the standard trick of mapping the above equations onto a problem of particles in a central potential.  In this case there are two particles in the potential that are coupled together.  The angular momentum of each particle $l_A=r^2\theta'$ and $l_B=s^2\phi'$ are constants of the motion along with the total energy of the system $h=h_A+h_B - h_c$.  Here the energy of the two particles are 
+\begin{subequations}
+\begin{align}
+h_A=&\frac{1}{2} a r'^2 +\frac{1}{2}\mu r^2 + \frac{al_A^2}{2r^2}-\frac{\alpha}{4}r^4
+\label{eq:hA} \\
+h_B=&\frac{1}{2}q^2 a s'^2 +\frac{1}{2}(\mu-\delta a/4) s^2 + \frac{q^2al_B^2}{2s^2}-\frac{\beta}{4}s^4
+\label{eq:hBr}
+\end{align}
+\end{subequations}
+and the coupling term is $h_c=\frac{1}{2}\gamma r^2 s^2$.  In these new variables, the equations of motion become
+\begin{subequations}
+\begin{align}
+h_A'=&\gamma s^2r r'\\
+h_B'=&\gamma r^2 s s'\\
+l_A'=&0\\
+l_B'=&0
+%\label{eq:msh23o3}
+\end{align}
+\end{subequations}
+
+
+\end{document}

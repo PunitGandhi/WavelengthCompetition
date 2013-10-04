@@ -1,0 +1,32 @@
+\documentclass[../main/WavelengthCompetition.tex]{subfiles} 
+\begin{document}
+
+
+\section{Weakly Nonlinear Analysis}
+We would like to look at small amplitude solutions in the neighborhood of the $r=0$ bifurcation where the periodic state branches off of the homogeneous state in the space of steady-state solutions.  We will take a multi-scale approach, defining a slow timescale $T=\epsilon^2t$, and long spatial scale $X=\epsilon x$ so that the derivatives become $\partial_t \rightarrow \partial_t+\epsilon^2\partial_T$ and $\partial_x \rightarrow \partial_x+\epsilon\partial_X$.  We will assume that the system will not change on the fast timescale, so we can neglect the $\partial_t$ term. With some trial and error, it can be seen that the appropriate scaling of forcing strength to probe the dynamics we are interested in will be $r=\epsilon^2 \mu$. In addition, we will choose to scale the shift parameter $\delta\rightarrow\epsilon^2 \delta$ so that the difference in onset of instability for the two wavelengths will be of the same order of the forcing that we consider.  
+
+There are a few issues to consider here, especially after looking at the work of Bentley.  I picked the above scaling to match what is standard in the original Swift-Hohenberg equation.  I had mostly completed this calculation before looking at Bentley's thesis, and noticed that he picked a slightly different scaling.    His large spacial scale goes like  $X=\epsilon^{1/2} x$ instead of  $X=\epsilon x$ .   Considering that we have upped the spatial order of the equation from 4 to 8,  his scaling makes sense because it "keeps the balance between the spatial and time orders the same."   The other thing he does differently that what I have done is to look near the codimension 3 point where $\delta=0$ and $q=1$, whereas I have set up my equations  to be valid for arbitrary (rational) values of q that do not necessarily need to be close together.  I do, however, in this analysis assume that q is of order 1.  Choosing q either very large or small is of interest, and should be done as well.  The cost of my approach is that I require two coupled amplitudes that must be solved whereas Bentley can get a single amplitude equation in one variable.  Since his amplitude varies over length scales of order $\epsilon^{-1/2}$ while mine two amplitudes vary over length scales order $\epsilon^{-1}$, I am guessing the physical explanation is that he is somehow incorporating the beat frequencies from my two amplitudes as a slowly varying modulation?  Since I have gotten so far into my calculation before realizing that I might even consider a different scaling, I decided to go ahead and finish it to see what I get.
+
+One other issue that arises, comes due to my choice of how to write down the equation. As was discussed in the Introduction, $q$ is not actually the wavenumber of the second pattern and yet it is the wavenumber of the leading order problem in this scaling.  The shift in wavenumber happens at a very high order, so maybe it doesn't appear at the order of calculation I'm working at.  I'm guessing that when it does appear, it appears as a correction to the slowly varying amplitude.  The other option is that I should change the form of my solution to include corrections directly to the wavenumber, $u~B e^{i(k_0+\epsilon k_1+...)x}$.  I'm not sure if this is a problem or not yet, but I need to check this a little more carefully.
+
+The linear part of the modified Swift-Hohenberg equation (Eq.~\ref{eq:SHm}), 
+\beqn
+L= r-\left(1+\partial_{x}^2\right)^2 \left[\left(q^2+\partial_{x}^2\right)^2+\delta \right],
+\eeqn
+can be expanded as $L=L_0+\epsilon L_1+\epsilon^2 L_2+...$ where:
+\begin{subequations}
+\begin{align}
+L_0 =& -\left(1+\partial_x^2\right)^2 \left(q^2+\partial_x^2\right)^2 \\
+L_1 =& -4\left(1+\partial_x^2\right)  \left(q^2+\partial_x^2\right) \left(q^2+1+2 \partial_x^2\right)\partial_x\partial_X \\
+L_2 =&- 2 \left[14 \partial_x^6+15  \left(q^2+1\right)\partial_x^4+3 \left(q^4+4 q^2+1\right) \partial_x^2+q^2\left(q^2+1\right)\right] \partial_X^2\nonumber\\  
+& \qquad -\delta \left[1+ \left(2+\partial_x^2\right)\partial_x^2\right] +\mu -\partial_T \\
+L_3 =& -4   \left[ \left(14 \partial_x^4+10  \left(q^2+1\right)\partial_x^2+q^4+ 4 q^2+1\right)\partial_X^2+\delta\left(1 +\partial_x^2\right)\right]\partial_x \partial_X \\
+L_4 =& -\left[\partial_X^2 \left(70 \partial_x^4+30\left(q^2+1\right) \partial_x^2 +q^4 +4 q^2+1\right)+2 \delta\left(1 +3 \partial_x^2 \right) \right] \partial_X^2  \\
+L_5=& -4  \left[ \left(3(q^2+1)+14 \partial_x^2\right)\partial_X^2+\delta \right]\partial_x \partial_X^3\\
+L_6=& - \left[2 \left(q^2+1+14 \partial_x^2\right)\partial_X^2+\delta \right]\partial_X^4 
+\end{align}
+\end{subequations}
+
+
+
+\end{document}

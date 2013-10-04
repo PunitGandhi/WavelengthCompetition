@@ -1,0 +1,37 @@
+\documentclass[../main/WavelengthCompetition.tex]{subfiles} 
+\begin{document}
+
+
+\section{Introduction}
+The Swift-Hohenberg equation serves as a model for pattern formation in a broad range of physical systems.   This equation, which takes the form  
+\begin{equation}
+u_t= r u-\left(1+\partial_{x}^2\right)^2u+N[u]\label{eq:SH},
+\end{equation}
+describes the dynamics of a real field $u$ over one spatial dimension in time, where $N$ is some nonlinear function of $u$.  We have rescaled the equation so that the critical wavenumber that defines the natural wavelength of the patterned state is unity.  We will be interested in two possible choices of $N$, namely $N_{23}[u]=bu^2-u^3$ and $N_{35}[u]=b u^3-u^5$.  The strength of the linear forcing term $r$ and the strength of the quadratic nonlinearity $b$ are left as parameters of the system.  
+
+There may be physical systems in which multiple patterned states with different characteristic wavelengths can exist simultaneously.  We would like to develop a model for such a system and study the interaction and competition between these patterned states.  We propose a modification to the Swift-Hohenberg equation in which such competition may be possible:
+\begin{equation}
+u_t= r u-\left(1+\partial_{x}^2\right)^2 \left[\left(q^2+\partial_{x}^2\right)^2+\delta \right] u+N[u]\label{eq:SHm}.
+\end{equation}
+Linear stability analysis of this equation results in a marginal stability curve (Fig. \ref{fig:marginalstability}) where two wavelengths can compete with each other.  The first wavelength is  $k=1$, just as in the original SHE (Eq.~\ref{eq:SH}), and the other occurs at 
+\beqn
+q_*=\frac{1}{2}\sqrt{1+3q^2 \pm\Delta}.
+\eeqn
+where $\Delta=\sqrt{(q^2-1)^2-8\delta}$ and $+$/ $-$ is used when $q>1$ and $q<1$ respectively.  We note that such solutions exist only when $(q^2-1)^2>8\delta$, which is the condition that there are  local extrema other than $k=1$ in the marginal stability curve.  We must further make the restriction that $\delta>-(q^2-1)^2$ in order that $k=1$ is in fact a local minimum.  If both these conditions are met, there will be a minimum at $q^*$ in addition to 1.  The curve that defines the region of interest to us is also proportional to the marginal stability curve of the original Swift-Hohenberg operator with characteristic wavenumber $q$ and forcing $\delta$.  \todo[inline]{Why is this the case, does it have some physical interpretation?}  This is not a constraining restriction since we will generally be interested in small values of $\delta$.
+\FIGmarginalstability
+When $\delta=0$, we have that $q_*=q$  and both wavelengths  become unstable at $r=0$. The instability of $q_*$ is shifted for nonzero values of $\delta$ by
+\beqn
+r_*=\frac{1}{128} \left(3( q^2-1)+\Delta\right)^2 \left( (q^2-1)^2- (q^2-1)\Delta+4 \delta \right).
+\eeqn
+
+We will be interested in the case that $\tfrac{8\delta}{(q^2-1)^2}<<1$,  so that the two competing wavelengths will have similar marginal stabilities and can thus compete.  This assumption allows us to approximate $q_*$ and $r_*$ as:
+\beqa
+q_*&\approx&q\left[1-\frac{\delta}{2q^2(q^2-1)^2}+\frac{\left(9 q^2-1\right) \delta ^2}{8 q^4 \left(q^2-1\right)^3}\right] \\
+r_*&\approx& (q^2-1)^2 \delta-\delta^2
+\eeqa
+We note that the $q=1$ is a degenerate case that may need to be handled separately.  In terms of the our analysis here, $q=1$ requires that $\delta=0$ and in this case, $q_*=q$ and $r_*=0$.  Another interesting regime could be when $q$ is close to one so that we have nearby wavelengths competing. We might also want to consider the case when $q>>1$ (or $q<<1$) so that the wavelengths of the patterns occur on different lengthscales.  This regime is of interest for quasicrystals?
+
+This equation has been studied by Bentley (2012), though with a slightly different parametrization.  The advantage of this parametrization over the one used by Bentley becomes apparent in the small $\delta$ limit.  We see that $q$ is approximately the wavenumber of the second competing pattern, and $\delta$ is proportional to the relative shift between the onsets of the two patterns.   We might also consider a slightly different parametrization in which the $\delta (1-k^2)^2$ is instead $\delta (1-k^2)$, the so-called "Proctor term" (I think).  The advantage of our parametrization is two-fold: (1) the characteristic wavenumber of one of the patterns is exactly one. (2) The relations between $q_*$, $r_*$ and $q$ and $\delta$ are much simpler in our case.    Bentley has looked at this equation as a model for magnetorotational Taylor-Couette flows.  His focus is in the supercritical regime where the patterned states bifurcate from the homogeneous state with a supercritical pitchfork bifurcation.  He is currently working to publish his work.  We don't know what additional work he has done beyond his thesis that his advisor has shared with us.
+
+
+\end{document}

@@ -1,0 +1,64 @@
+\usepackage{bm}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[intlimits]{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{pstricks}
+%\usepackage{pst-coil}
+%\usepackage{pst-plot}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{todonotes}
+\usepackage{subfiles}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newenvironment{problem}[1]{\begin{prob} {\rm #1} \end{prob}}
+
+%Nadir's Shortcuts
+\newcommand{\beqn}{\begin{equation}}
+\newcommand{\eeqn}{\end{equation}}
+\newcommand{\beqa}{\begin{eqnarray}}
+\newcommand{\eeqa}{\end{eqnarray}}
+\newcommand{\beqanonum}{\begin{eqnarray*}}
+\newcommand{\eeqanonum}{\end{eqnarray*}}
+\newcommand{\beqnonum}{\begin{equation*}}
+\newcommand{\eeqnonum}{\end{equation*}}
+\newcommand{\jump}{\vspace{0.5cm}}
+\newcommand{\bbf}{\begin{bf}}
+\newcommand{\ebf}{\end{bf}}
+%\newcommand{\eqnref}[1]{(\ref{#1})}
+\newcommand{\defn}[1]{\begin{bf}\emph{#1}\end{bf}}
+\newcommand{\reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\complex}{\ensuremath{\mathbb{C}}}
+\newcommand{\integers}{\ensuremath{\mathbb{Z}}}
+\newcommand{\half}{\ensuremath{\frac{1}{2}}}
+\newcommand{\n}{\nonumber}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\del}{\partial}
+\newcommand{\dd}{\ensuremath{\, \mathrm{d}}}
+\newcommand{\nint}[4]{\int_{#3}^{#4} {#1}\, \mathrm{d}{#2}}
+\newcommand{\der}[2]{\frac{\d {#1}}{\d {#2}}}
+\newcommand{\parder}[2]{\frac{\del {#1}}{\del {#2}}}
+\newcommand{\funder}[2]{\frac{\delta {#1}}{\delta {#2}}}
+\newcommand{\Lag}{\mathcal{L}}
+
+
+
+\newcommand{\bigO}[2]{\mathcal{O}(#1^{#2})}
+
+% Draft macros
+%\newcommand{\TODO}[1]{\marginpar{\raggedright\scriptsize\textbf{TODO:} #1} (\textbf{TODO})}
+%\newcommand{\NOTE}[1]{\marginpar{\footnotesize\textbf{NOTE}} (\textbf{#1})}
+
+%\oddsidemargin  0.0in
+%\evensidemargin 0.0in
+%\textwidth      6.5in
+%\headheight     15pt
+%\topmargin      0.0in
+%\textheight=8.0in
+%%\setlength{\parindent}{0in}

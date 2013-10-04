@@ -1,0 +1,82 @@
+\documentclass[api,pof,pre,12pt,a4paper]{revtex4-1}     
+\usepackage{graphicx}
+\usepackage{../main/WavelengthCompetitionSty}
+\usepackage{../main/WavelengthCompetitionFigures}
+
+
+
+\lhead{Wavelength competition in modified SH}
+\chead{}
+\rhead{Gandhi et al.}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+
+
+
+\begin{abstract}
+We propose a modified version of the Swift-Hohenberg equation in an attempt to study a situation in which competition between two patterns of different wavelength exist.
+\end{abstract}
+
+\pagestyle{fancy}
+\begin{document}
+\preprint{APS/123-QED}
+
+
+\title{Pattern Formation in a system with competing wavelengths}
+\author{Punit Gandhi}
+ \email{punit_gandhi@berkeley.edu}
+\author{C\'edric Beaume}
+\author{Edgar Knobloch}
+ \email{knobloch@berkeley.edu}
+\affiliation{Department of Physics, University of California, Berkeley CA 94720, USA}
+
+
+
+
+
+
+\maketitle
+
+%Introduction
+\subfile{../tex/IntroductionWC.tex}
+
+%Variational Structure
+\subfile{../tex/VariationalStructureWC.tex}
+
+%Weakly Nonlinear Analysis
+\subfile{../tex/WeaklyNonlinearAnalysisWC.tex}
+
+	%General case for 23 nonlinearity
+	\subfile{../tex/WeaklyNonlinearAnalysisSub23genWC.tex}
+
+	%Consider q=0 Case for 23 nonlinearity
+	\subfile{../tex/WeaklyNonlinearAnalysisSub23q0WC.tex}
+
+%Use scaling that matches Bently for 23 nonlinearity - this should be re- work for q near 1, and classified as a sub section of above.
+\subfile{../tex/WeaklyNonlinearAnalysisBentleyWC.tex}
+
+
+%%Case for 35 nonlinearity, nothing done yet
+%%\subfile{../tex/WeaklyNonlinearAnalysisSub35genWC.tex}
+%
+%%Numerical Results
+%\subfile{../tex/NumericalResultsWC.tex}
+%	
+%	%the case that q=1 and 23 nonlinearity
+%	\subfile{../tex/NumericalResultsSubq1WC.tex}
+
+
+
+
+
+
+\bibliography{../tex/WavelengthCompetitionBib}
+\end{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

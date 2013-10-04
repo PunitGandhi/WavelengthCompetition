@@ -1,0 +1,91 @@
+\documentclass[../main/WavelengthCompetition.tex]{subfiles} 
+\begin{document}
+
+
+\section{Weakly nonlinear analysis for q=0}
+In the $q=0$ case, we have a degenerate minimum($k^4$) to the marginal stability curve at $k=0$ in adition to the quadratic minimum at $k=1$.  This indicates that three lengthscales are required for the analysis.  In addition to the original lengthscale of the problem $x$ corresponding to the wavelength of the preferred spatial pattern, there is also the long lengthscale $x=\epsilon X$ over which the envelope is modulated.  In addition there is an intermediate lengthscale $x=\epsilon^{1/2} \chi$ associated with modulation of the zero wavenumber mode.  Thus, the spatial derivative becomes $\partial_x\rightarrow \partial_x+ \epsilon^{1/2}\partial{\chi}+\epsilon\partial_{X}$.  With this new scaling, we find that it is necessary to control the value of the forcing parameter on a more course scale: $r\rightarrow \epsilon \eta +\epsilon^2\mu$ in order to reach a consistent set of equations.  This physically corresponds to looking in a neighborhood of size $\mathcal{O}(\epsilon^2)$ that is $\mathcal{O}(\epsilon)$ away from $r=0$. We'll ignore the timescales for now, but it seems like the interesting scale will be more course than the previous case as well (i.e. $\mathcal{O}(\epsilon)$).  
+
+
+The linear part of the modified Swift-Hohenberg equation (Eq.~\ref{eq:SHm}), 
+\beqn
+L= r-\partial_{x}^4 \left(1+\partial_{x}^2\right)^2 ,
+\eeqn
+can be expanded as $L=L_0+\epsilon^{1/2} L_{1/2}+\epsilon L_1+\epsilon^{3/2} L_{3/2}+\epsilon^2 L_2+...$ where:
+\begin{subequations}
+\begin{align}
+L_0 = &-\partial_x^4\left(1+\partial_x^2\right)^2  \\
+L_{1/2} = & -4\left(1+\partial_x^2\right)  \left(1+2 \partial_x^2\right)\partial_x^3\partial_{\chi} \\
+L_1 = \eta&- 2 \left(3+15 \partial_x^2+14 \partial_x^4\right) \partial_x^3\partial_{\chi} -4\left(1+\partial_x^2\right)  \left(1+2 \partial_x^2\right)\partial_x^3\partial_{X}\\  
+L_{3/2} = &-4   \left(1+10 \partial_x^2+ 14 \partial_x^4\right)\partial_x \partial_{\chi}^3 - 4 \left(3+15 \partial_x^2+14 \partial_x^4\right) \partial_x^2\partial_{\chi}\partial_{X} \\
+L_2 = \mu&-\left(1+30 \partial_x^2 +70\partial_x^4\right)\partial_{\chi}^4 - 12\left(1+10 \partial_x^2+ 14 \partial_x^4\right)\partial_x \partial_{\chi}^2\partial_{X} \nonumber\\   &- 2 \left(3+15 \partial_x^2+14 \partial_x^4\right) \partial_x^2\partial_{X}^2 \\
+L_{5/2} = &-4\left(1+30 \partial_x^2 +70\partial_x^4\right)\partial_{\chi}^3\partial_{X} - 12\left(1+10 \partial_x^2+ 14 \partial_x^4\right)\partial_x \partial_{\chi}\partial_{X}^2\nonumber \\   & -4 \left(3+14 \partial_x^2\right) \partial_x\partial_{\chi}^5  \\
+L_{3} = &-6\left(1+30 \partial_x^2 +70\partial_x^4\right)\partial_{\chi}^2\partial_{X}^2 - 4\left(1+10 \partial_x^2+ 14 \partial_x^4\right)\partial_x\partial_{X}^3\nonumber \\  &-20 \left(3+14 \partial_x^2\right) \partial_x\partial_{\chi}^4\partial_{X} -2 \left(1+14 \partial_x^2\right) \partial_{\chi}^6
+\end{align}
+\end{subequations}
+
+\subsection{The quadratic-cubic nonlinearity}
+We will first consider the case when $N=N_{23}$ so that the modified Swift-Hohenberg equation can be written as $L[u]+N_{23}[u]=0$.  We will assume that the solution can be written as an asymptotic series with the leading term of order $\epsilon^{1/2}$, namely $u=\epsilon^{1/2} u_{1/2} +\epsilon u_1 + \epsilon^{3/2} u_{3/2} +\epsilon^2 u_2+...$   
+
+We can then write out the resulting equation at each order of $\epsilon$ by matching terms at the proper order.
+At leading order we have $\bigO{\epsilon}{1/2}: \: L_0 u_{1/2} =0$, telling us that the solution is of the form $u_{1/2} =\Theta_{1/2} + (A_{1/2} e^{ix} +C.C.)$.
+
+The next order is $\bigO{\epsilon}{}: \:  L_0 u_{1}+L_{1/2} u_{1/2}  +b u_{1/2}^2+bu_{1/2}^2=0$.  Noting that $L_{1/2} u_{1/2} =0$, the solvability condition implies that $A_{1/2}=\Theta_{1/2}=0$ because $\Theta$ is assumed to be real.  We finally get the equation $L_0 u_1=0$, telling us that the solution must be of the form $u_{1/2} =\Theta + (A e^{ix} +C.C.)$ again with undetermined coefficients.
+
+The order $\mathcal{O}(\epsilon^{3/2})$ produces an the identical equation as above for $u_{3/2}$, namely $L_0 u_{3/2} =0$.  We can thus redefine $u_1$ to include the solution at this order.  This effectively allows us to set $u_{3/2}=0$ for the rest of our calculations.
+
+Moving on to order $\bigO{\epsilon}{2}$, we find consistent nontrivial equation if we assume that $\eta\neq0$.  The solvability conditions from the equation, $L_0 u_2 +L_1 u_1 +b u_1^2=0$ produce the following set of equations for the undertermined coefficients of $u_1$.
+\begin{subequations}
+\begin{align}
+\eta \Theta+b\Theta^2+2b| A|^2 =&0\\
+4 A_{\chi\chi}+\eta A +2 b \Theta A =&0
+\end{align}
+\end{subequations}
+It is clear that a solution is only possible in the case that $\eta^2\geq 8 b^2 |A|^2$, which provides maximum limit on the magnitude of $A$ in terms of the parameters of the problem.  Note that we would probably want to include the time derivative at this order.  Assuming that $A$ satisfies this inequality, we can write an expression the following expression for $\Theta$ in terms of $A$
+\beqn
+\Theta=\frac{1}{2b}\left(-\eta\pm\sqrt{\eta^2-8b^2|A|^2}\right)
+\eeqn
+As well as a spatial evolution equation for $A$ decoupled from $\Theta$.
+\beqn
+A_{\chi\chi}\pm \left(\frac{\eta^2}{2}-4b^2|A|^2\right)^{1/2}A=0
+\eeqn
+
+We can now rescale this equation by $|A|$'s maximum value $A_*=\eta/\sqrt{8}b$ and rescale the intermediate length by $\chi^2 \rightarrow(\sqrt{2}/\eta) \chi^2$.  We will furthermore select the plus sign from the root in order that it is possible to have a local minumum in the potential.  The equation now becomes
+\beqn
+a'' + \left(1-|a|^2\right)^{1/2}a=0
+\eeqn
+where $a=A/A_*$ has a maximumum magnitude of 1 and the primes indicate derivatives with respect to the rescaled intermediate length.
+
+
+We can re-express this equation into a form similar to those of a particle traveling in a central potential by making the substitution $A=r e^{i\phi}$. In this case we get the two equations
+\begin{subequations}
+\begin{align}
+r''- \frac{l^2}{r^3}+\sqrt{1-r^2}r=0\\
+l'=(r^2 \phi')'=0
+\end{align}
+\end{subequations}
+where, $r<1$.  We can find the spatial hamiltonian for this system to be
+\beqn
+h=\frac{1}{2}r'^2+\frac{l^2}{2r^2}-\frac{1}{3}(1-r^2)^{3/2}
+\eeqn
+ 
+
+
+ 
+\begin{subequations}
+\begin{align}
+\bigO{\epsilon}{1/2}: \:  &L_0 u_{1/2} =0
+\label{eq:msh23o05q0} \\
+\bigO{\epsilon}{}: \:  &L_0 u_{1}+L_{1/2} u_{1/2}  +b u_{1/2}^2
+\label{eq:msh23o10q0} \\
+\mathcal{O}(\epsilon^{3/2}): \: &L_0 u_{3/2} + L_{1/2}1 u_{1}+L_{1/2} u_1 =
+\label{eq:msh23o15q0} \\
+\mathcal{O}(\epsilon^2): \:  &L_0 u_2 + L_{1/2} u_{3/2} +L_1 u_1 +b u_1^2
+\label{eq:msh23o20q0}\\
+\mathcal{O}(\epsilon^{5/2}): \:  &-L_0 u_{5/2} = L_{1/2} u_{2} +L_1 u_{3/2}+ L_{3/2} u_1 +2b u_1 u_{3/2}
+\label{eq:msh23o25q0}\\
+\mathcal{O}(\epsilon^{3}): \:  &-L_0 u_{3} = L_{1/2} u_{5/2} +L_1 u_{2}+ L_{3/2} u_{3/2}+L_2 u_1   +b u_{3/2}^2+2b u_1 u_2 -u_1^3
+\label{eq:msh23o30q0}
+\end{align}
+\end{subequations}
+
+\end{document}
