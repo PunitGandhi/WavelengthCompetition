@@ -3,7 +3,7 @@
 
 
 \section{Weakly nonlinear analysis for q=0}
-In the $q=0$ case, we have a degenerate minimum($k^4$) to the marginal stability curve at $k=0$ in adition to the quadratic minimum at $k=1$.  This indicates that three lengthscales are required for the analysis.  In addition to the original lengthscale of the problem $x$ corresponding to the wavelength of the preferred spatial pattern, there is also the long lengthscale $x=\epsilon X$ over which the envelope is modulated.  In addition there is an intermediate lengthscale $x=\epsilon^{1/2} \chi$ associated with modulation of the zero wavenumber mode.  Thus, the spatial derivative becomes $\partial_x\rightarrow \partial_x+ \epsilon^{1/2}\partial{\chi}+\epsilon\partial_{X}$.  With this new scaling, we find that it is necessary to control the value of the forcing parameter on a more course scale: $r\rightarrow \epsilon \eta +\epsilon^2\mu$ in order to reach a consistent set of equations.  This physically corresponds to looking in a neighborhood of size $\mathcal{O}(\epsilon^2)$ that is $\mathcal{O}(\epsilon)$ away from $r=0$. We'll ignore the timescales for now, but it seems like the interesting scale will be more course than the previous case as well (i.e. $\mathcal{O}(\epsilon)$).  
+In the $q=0$ case, we have a degenerate minimum ($k^4$) to the marginal stability curve at $k=0$ in addition to the quadratic minimum at $k=1$.  This indicates that three lengthscales are required for the analysis.  In addition to the original lengthscale of the problem $x$ corresponding to the wavelength of the preferred spatial pattern, there is also the long lengthscale $x=\epsilon X$ over which the envelope is modulated.  In addition there is an intermediate lengthscale $x=\epsilon^{1/2} \chi$ associated with modulation of the zero wavenumber mode.  Thus, the spatial derivative becomes $\partial_x\rightarrow \partial_x+ \epsilon^{1/2}\partial{\chi}+\epsilon\partial_{X}$.  With this new scaling, we find that it is necessary to control the value of the forcing parameter on a more coarse scale: $r\rightarrow \epsilon \eta +\epsilon^2\mu$ in order to reach a consistent set of equations.  This physically corresponds to looking in a neighborhood of size $\mathcal{O}(\epsilon^2)$ that is $\mathcal{O}(\epsilon)$ away from $r=0$. We'll ignore the timescales for now, but it seems like the interesting scale will be more coarse than the previous case as well (i.e. $\mathcal{O}(\epsilon)$).  
 
 
 The linear part of the modified Swift-Hohenberg equation (Eq.~\ref{eq:SHm}), 
@@ -29,11 +29,11 @@ We will first consider the case when $N=N_{23}$ so that the modified Swift-Hohen
 We can then write out the resulting equation at each order of $\epsilon$ by matching terms at the proper order.
 At leading order we have $\bigO{\epsilon}{1/2}: \: L_0 u_{1/2} =0$, telling us that the solution is of the form $u_{1/2} =\Theta_{1/2} + (A_{1/2} e^{ix} +C.C.)$.
 
-The next order is $\bigO{\epsilon}{}: \:  L_0 u_{1}+L_{1/2} u_{1/2}  +b u_{1/2}^2+bu_{1/2}^2=0$.  Noting that $L_{1/2} u_{1/2} =0$, the solvability condition implies that $A_{1/2}=\Theta_{1/2}=0$ because $\Theta$ is assumed to be real.  We finally get the equation $L_0 u_1=0$, telling us that the solution must be of the form $u_{1/2} =\Theta + (A e^{ix} +C.C.)$ again with undetermined coefficients.
+The next order is $\bigO{\epsilon}{}: \:  L_0 u_{1}+L_{1/2} u_{1/2}  +b u_{1/2}^2=0$.  Noting that $L_{1/2} u_{1/2} =0$, the solvability condition implies that $A_{1/2}=\Theta_{1/2}=0$ because $\Theta$ is assumed to be real.  We finally get the equation $L_0 u_1=0$, telling us that the solution must be of the form $u_{1} =\Theta + (A e^{ix} +C.C.)$ again with undetermined coefficients.
 
-The order $\mathcal{O}(\epsilon^{3/2})$ produces an the identical equation as above for $u_{3/2}$, namely $L_0 u_{3/2} =0$.  We can thus redefine $u_1$ to include the solution at this order.  This effectively allows us to set $u_{3/2}=0$ for the rest of our calculations.
+The order $\mathcal{O}(\epsilon^{3/2})$ produces an  identical equation as above for $u_{3/2}$, namely $L_0 u_{3/2} =0$.  We can thus redefine $u_1$ to include the solution at this order.  This effectively allows us to set $u_{3/2}=0$ for the rest of our calculations.
 
-Moving on to order $\bigO{\epsilon}{2}$, we find consistent nontrivial equation if we assume that $\eta\neq0$.  The solvability conditions from the equation, $L_0 u_2 +L_1 u_1 +b u_1^2=0$ produce the following set of equations for the undertermined coefficients of $u_1$.
+Moving on to order $\bigO{\epsilon}{2}$, we find consistent nontrivial equation if we assume that $\eta\neq0$.  The solvability conditions from the equation, $L_0 u_2 +L_1 u_1 +b u_1^2=0$ produce the following set of equations for the undetermined coefficients of $u_1$.
 \begin{subequations}
 \begin{align}
 \eta \Theta+b\Theta^2+2b| A|^2 =&0\\
@@ -49,11 +49,11 @@ As well as a spatial evolution equation for $A$ decoupled from $\Theta$.
 A_{\chi\chi}\pm \left(\frac{\eta^2}{2}-4b^2|A|^2\right)^{1/2}A=0
 \eeqn
 
-We can now rescale this equation by $|A|$'s maximum value $A_*=\eta/\sqrt{8}b$ and rescale the intermediate length by $\chi^2 \rightarrow(\sqrt{2}/\eta) \chi^2$.  We will furthermore select the plus sign from the root in order that it is possible to have a local minumum in the potential.  The equation now becomes
+We can now rescale this equation by $|A|$'s maximum value $A_*=\eta/\sqrt{8}b$ and rescale the intermediate length by $\chi^2 \rightarrow(\sqrt{2}/\eta) \chi^2$.  We will furthermore select the plus sign from the root in order that it is possible to have a constant amplitude solution.  The equation now becomes
 \beqn
 a'' + \left(1-|a|^2\right)^{1/2}a=0
 \eeqn
-where $a=A/A_*$ has a maximumum magnitude of 1 and the primes indicate derivatives with respect to the rescaled intermediate length.
+where $a=A/A_*$ has a maximum magnitude of 1 and the primes indicate derivatives with respect to the rescaled intermediate length.
 
 
 We can re-express this equation into a form similar to those of a particle traveling in a central potential by making the substitution $A=r e^{i\phi}$. In this case we get the two equations
@@ -68,24 +68,12 @@ where, $r<1$.  We can find the spatial hamiltonian for this system to be
 h=\frac{1}{2}r'^2+\frac{l^2}{2r^2}-\frac{1}{3}(1-r^2)^{3/2}
 \eeqn
  
+When $L^2=0$, we will have a minimum of the effective potential at r=0 and maximum at r=1.  If we assume that $0<L^2< 4^2/5^{5/2}$, then the effective potential of this Hamiltonian will still have a minimum and maximum, though they will be shifted so that the fall within $0<r<1$ .  The slope of the potential at r=1 will be negative in this case.  As $L$ increases, the minimum of the effective potential gets shifted to larger and large values of $r$, until it gets too large and disappears.  The minimum and maximum that correspond to stable and unstable oscillating constant-amplitude solutions of the original problem coincide at $L^2=4^2/5^{5/2}$ and disappear afterwards. 
 
+We could take the calculation to higher orders to include next-to-leading order terms.  In this case we would find terms with spatial derivatives of $\Theta$ with respect to the intermediate scale as well as an equation to determine the long scale dependence of $A$.  The fact that the $X$ dependence does not come in until higher orders is an indication that we are not resolving the shape of the minimum of the marginal stability curve at leading order.  
 
- 
-\begin{subequations}
-\begin{align}
-\bigO{\epsilon}{1/2}: \:  &L_0 u_{1/2} =0
-\label{eq:msh23o05q0} \\
-\bigO{\epsilon}{}: \:  &L_0 u_{1}+L_{1/2} u_{1/2}  +b u_{1/2}^2
-\label{eq:msh23o10q0} \\
-\mathcal{O}(\epsilon^{3/2}): \: &L_0 u_{3/2} + L_{1/2}1 u_{1}+L_{1/2} u_1 =
-\label{eq:msh23o15q0} \\
-\mathcal{O}(\epsilon^2): \:  &L_0 u_2 + L_{1/2} u_{3/2} +L_1 u_1 +b u_1^2
-\label{eq:msh23o20q0}\\
-\mathcal{O}(\epsilon^{5/2}): \:  &-L_0 u_{5/2} = L_{1/2} u_{2} +L_1 u_{3/2}+ L_{3/2} u_1 +2b u_1 u_{3/2}
-\label{eq:msh23o25q0}\\
-\mathcal{O}(\epsilon^{3}): \:  &-L_0 u_{3} = L_{1/2} u_{5/2} +L_1 u_{2}+ L_{3/2} u_{3/2}+L_2 u_1   +b u_{3/2}^2+2b u_1 u_2 -u_1^3
-\label{eq:msh23o30q0}
-\end{align}
-\end{subequations}
+It would also be interesting to put in the time dependence at leading order for these equations.  We find that there are several cases where the solution to the equations are not well defined for the entire spatial domain.  Does this mean that a solution exists where only a finite part of the domain remains constant in time?  Because the original problem has a Lyaponov function, the corresponding state in the original equation must approach steady state in time over the entire domain. 
+
+Finally, we might consider the case when $\delta \neq 0$.  It would need to be $\bigO{\epsilon}{}$ to appear in the calculation at leading order.  If this were the case, we could get consistent in the case that $\eta=0$ so that we can look in the neighborhood of size $\bigO{\epsilon}{2}$  of the $r=0$ forcing.
 
 \end{document}
